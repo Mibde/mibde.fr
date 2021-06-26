@@ -3,7 +3,46 @@
         <title>Mibde</title>
     </header>
     <body>
-        Site web
+        <div class="topnav" id="header">
+            <a href="/" class="active">Mibde</a>
+            <a href="event">Evenement</a>
+            <a href="calendrier/">Calendrier</a>
+            <a href="#about">L'équipe</a>
+            <a href="javascript:void(0);" style="font-size:15px;" class="icon" onclick="myFunction()">☰</a>
+        </div>
 
     </body>
+    <style media="screen">
+    body {
+        margin: 0;
+        padding: 0;
+    }
+    .topnav {
+        width : 100vw;
+        max-width: 100%;
+        top:0;
+        position: fixed;
+        z-index: 2;
+        overflow: hidden;
+        background-color: blue;
+        box-shadow: 0 0 10px 0 black;
+    }
+
+    .topnav a {
+        float: left;
+        display: block;
+        color: black;
+        text-align: center;
+        padding: 14px 16px;
+        text-decoration: none;
+        font-size: 17px;
+    }
+    .active {
+      background-color: #1d212d;
+      color: white;
+    }
+    .topnav .icon {
+      display: none;
+    }
+    </style>
 </html>
