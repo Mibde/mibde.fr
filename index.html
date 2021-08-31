@@ -43,37 +43,37 @@
     }
     .flexbox {
         width: 100vw;
-        height: 100%;
         display: flex;
         justify-content: center;
         align-items: center;
+        height: 100%;
+        
     }
 
     .topic {
-        /*width: 600px;*/
+        font-size: 1.4rem;
         background-color: aquamarine;
         border-radius: 4px;
         display: flex;
         justify-content: center;
         align-items: center;
     }
-
-    body {
-        margin: 0;
-        padding: 0;
-        color: #1d212d;
-        width: 100vw;
-        height: 100vh;
+    .conteneur div:hover {
+        /*border-bottom: 10px solid blueviolet;
+        border-left: 10px solid blueviolet;*/
+        background-color: blueviolet;
+        color: whitesmoke;
     }
+
+
     .topnav {
-        display: none;
         width : 100vw;
         max-width: 100%;
         top:0;
-        /*position: fixed;*/
+        position: fixed;
         z-index: 2;
         overflow: hidden;
-        background-color: blue;
+        background-color: #9b9bfe;
         box-shadow: 0 0 10px 0 black;
     }
 
@@ -87,11 +87,19 @@
         font-size: 17px;
     }
     .active {
-      background-color: #1d212d;
+      background-color: aquamarine;
       color: white;
     }
     .topnav .icon {
       display: none;
+    }
+       body {
+        margin: 0;
+        padding: 0;
+        color: #1d212d;
+        width: 100vw;
+        height: 100vh;
+        font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
     }
     </style>
 </html>
