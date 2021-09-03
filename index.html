@@ -68,6 +68,7 @@
     }
     .recent-content {
         background-color: rgb(40, 241, 241);
+        overflow-y: auto;
     }
     .conteneur div:hover {
         /*border-bottom: 10px solid blueviolet;
@@ -178,7 +179,7 @@
                 cache: 'default'
             };
 
-            var myRequest = new Request('https://pi-univers.fr/', myInit);
+            var myRequest = new Request('https://mibde.fr/get_recent.php', myInit);
             let response = await fetch(myRequest, myInit);
             let responseText = await response.text();
             console.log(responseText);
