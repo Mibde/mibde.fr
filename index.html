@@ -10,13 +10,19 @@
     <body>
         <div class="topnav" id="header">
             <a href="/" class="active">Mibde</a>
-            <a href="event">Evenement</a>
+            <a href="event">Evènement</a>
             <a href="calendrier/">Calendrier</a>
             <a href="#about">L'équipe</a>
             <a href="javascript:void(0);" style="font-size:15px;" class="icon" onclick="myFunction()">☰</a>
         </div>
         <div class="flexbox">
             <div class="conteneur">
+                <div class="topic recent-topic">
+                    <div class="recent-title">Activité Récente</div>
+                    <div class="recent-content">
+                        [03.09.21] : Aujourd'hui commence les cours
+                    </div>
+                </div>
                 <div class="topic">Evénement</div>
                 <div class="topic">Calendrier</div>
                 <div class="topic">Annales et cours</div>
@@ -47,7 +53,6 @@
         justify-content: center;
         align-items: center;
         height: 100%;
-        
     }
 
     .topic {
@@ -58,14 +63,18 @@
         justify-content: center;
         align-items: center;
     }
+    .recent-topic {
+        display: block;
+    }
+    .recent-content {
+        background-color: rgb(40, 241, 241);
+    }
     .conteneur div:hover {
         /*border-bottom: 10px solid blueviolet;
         border-left: 10px solid blueviolet;*/
         background-color: blueviolet;
         color: whitesmoke;
     }
-
-
     .topnav {
         width : 100vw;
         max-width: 100%;
@@ -75,6 +84,7 @@
         overflow: hidden;
         background-color: #9b9bfe;
         box-shadow: 0 0 10px 0 black;
+        display: none;
     }
 
     .topnav a {
@@ -146,5 +156,38 @@
                 x.className = "topnav";
             }
         }
+
+        async function get_recent_activities() {
+/*
+            function reqListener() {
+                console.log(this.responseText);
+            }
+
+            var oReq = new XMLHttpRequest();
+            oReq.onload = reqListener;
+            oReq.open("get", "https://mibde.fr/get_recent.php", true);
+            oReq.setRequestHeader('X-Requested-With', 'XMLHttpRequest'); 
+            oReq.setRequestHeader('Access-Control-Allow-Origin', '*');
+            oReq.send();
+*/
+            var myHeaders = new Headers();
+            var myInit = {
+                method: 'GET',
+                headers: myHeaders,
+                mode: 'no-cors',
+                cache: 'default'
+            };
+
+            var myRequest = new Request('https://pi-univers.fr/', myInit);
+            let response = await fetch(myRequest, myInit);
+            let responseText = await response.text();
+            console.log(responseText);
+            /*fetch(myRequest, myInit)
+                .then(response => response.text())
+                .then(function(data) {
+                    console.log((data));
+                });*/
+        }
+        get_recent_activities();
     </script>
 </html>
