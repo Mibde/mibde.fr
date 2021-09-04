@@ -19,9 +19,7 @@
             <div class="conteneur">
                 <div class="topic recent-topic">
                     <div class="recent-title">Activité Récente</div>
-                    <div class="recent-content">
-                        [03.09.21] : Aujourd'hui commence les cours
-                    </div>
+                    <div id="recent_content" class="recent-content"></div>
                 </div>
                 <div class="topic">Evénement</div>
                 <div class="topic">Calendrier</div>
@@ -105,7 +103,7 @@
       display: none;
     }
 
-    
+
 @media screen and (max-width: 550px) {
   .topnav a:not(:first-child), .dropdown .dropbtn {
     display: none;
@@ -159,18 +157,6 @@
         }
 
         async function get_recent_activities() {
-/*
-            function reqListener() {
-                console.log(this.responseText);
-            }
-
-            var oReq = new XMLHttpRequest();
-            oReq.onload = reqListener;
-            oReq.open("get", "https://mibde.fr/get_recent.php", true);
-            oReq.setRequestHeader('X-Requested-With', 'XMLHttpRequest'); 
-            oReq.setRequestHeader('Access-Control-Allow-Origin', '*');
-            oReq.send();
-*/
             var myHeaders = new Headers();
             myHeaders.set('Access-Control-Allow-Origin', '*');
             var myInit = {
@@ -185,12 +171,23 @@
             let response = await fetch(myRequest, myInit);
             let responseText = await response.text();
             console.log(responseText);
-            /*fetch(myRequest, myInit)
-                .then(response => response.text())
-                .then(function(data) {
-                    console.log((data));
-                });*/
+	          var data = JSON.parse(responseText);
+            console.log(data);
+            var a = document.getElementById("recent_content");
+            data.forEach((item, i) => {
+              var ele = document.createElement("div");
+              var date = item[1].split(" ")[0].split("-");
+              ele.innerHTML = "["+date[2]+"."+date[1]+"."+date[0] + "] : "+item[2] + " ";
+              a.appendChild(ele);
+            });
+            /*data.forEach((item, i) => {
+              var ele = document.createElement("div");
+              var date = new Date(item[1]);
+              ele.innerHTML = "["+date.getDay()+"."+date.getDate()+"."+date.getFullYear() + "] : "+item[2];
+              a.appendChild(ele);
+            });*/
         }
-        get_recent_activities();
+
+      get_recent_activities();
     </script>
 </html>
