@@ -174,13 +174,16 @@
             var a = document.getElementById("recent_content");
             data.forEach((item, i) => {
               var ele = document.createElement("div");
+              var date = item[1].split(" ")[0].split("-");
+              ele.innerHTML = "["+date[2]+"."+date[1]+"."+date[0] + "] : "+item[2] + " ";
+              a.appendChild(ele);
+            });
+            /*data.forEach((item, i) => {
+              var ele = document.createElement("div");
               var date = new Date(item[1]);
               ele.innerHTML = "["+date.getDay()+"."+date.getDate()+"."+date.getFullYear() + "] : "+item[2];
               a.appendChild(ele);
-              console.log(item[1]);
-            });
-
-
+            });*/
         }
 
       get_recent_activities();
