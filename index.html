@@ -172,10 +172,12 @@
             oReq.send();
 */
             var myHeaders = new Headers();
+            myHeaders.set('Access-Control-Allow-Origin', '*');
             var myInit = {
                 method: 'GET',
                 headers: myHeaders,
                 mode: 'no-cors',
+                site: 'none',
                 cache: 'default'
             };
 
