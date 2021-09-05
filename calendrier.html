@@ -7,6 +7,11 @@
     <meta name="description" content="Calendrier des évenements par le MIBDE">
 </head>
 <body>
+    <div class="bar">
+        <div id="precedent">Précédent</div>
+        <div id="mois" class="mois">Septembre</div>
+        <div id="suivant">Suivant</div>
+    </div>
     <div class="conteneur" id ="calendrier">
         <!--<div class="conteneur_day">
             <div class="day">
@@ -26,14 +31,19 @@
             grid-gap: 10px;
             grid-auto-rows: minmax(100px, auto);
             width: 100vw;
-            height: 100vh;
+            height: calc(100vh - 1cm);
+            /*height: 100vh;*/
         }
         .conteneur_day {
             display: grid;
             grid-template-columns: 50% 50%;
+            height: calc((100vh - 1cm - 4*10px) / 5);
+            background-color: blueviolet;
+        }
+        .conteneur_day:hover {
+            background-color: rgb(159, 84, 230);
         }
         .day {
-            background-color: blueviolet;
             display: flex;
             flex-wrap: wrap;
             justify-content: center;
@@ -48,11 +58,25 @@
             border-radius: 20px;
             padding: 4px;
         }
-
+        .bar {
+            display: grid;
+            grid-template-columns: repeat(3, 33%);
+            height: 1cm;
+        }
+        .bar div {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100%;
+            width: 100%;
+        }
         body {
             margin: 0;
             padding: 0;
             background-color: rgb(62, 24, 97);
+        }
+        .mois {
+            font-size: 1.4rem;
         }
     </style>
     <script>
@@ -84,7 +108,7 @@
             event.innerHTML = "3";
             let categorie = event.cloneNode(true);
             event.className = "icon";
-            categorie.innerHTML = "event";
+            categorie.innerHTML = " event";
             activities.appendChild(event);
             activities.appendChild(categorie);
             
