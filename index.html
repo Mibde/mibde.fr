@@ -46,6 +46,9 @@
             grid-template-columns: repeat(3, 1fr);
         }
     }
+    .conteneur a {
+        text-decoration: none;
+    }
     .flexbox {
         width: 100vw;
         display: flex;
@@ -61,6 +64,7 @@
         display: flex;
         justify-content: center;
         align-items: center;
+        height: 100%;
     }
     .recent-topic {
         display: block;
@@ -69,7 +73,7 @@
         background-color: rgb(40, 241, 241);
         overflow-y: auto;
     }
-    .conteneur div:hover {
+    .conteneur div:hover, .conteneur a div:hover {
         /*border-bottom: 10px solid blueviolet;
         border-left: 10px solid blueviolet;*/
         background-color: blueviolet;
