@@ -35,19 +35,11 @@
     .conteneur {
         width: 100%;
         height: 100%;
-        display: grid;
-        grid-template-columns: repeat(2, 1fr);
-        grid-gap: 10px;
-        grid-auto-rows: minmax(100px, auto);
+        display: block;
+        /*grid-template-columns: repeat(2, 1fr);
+        */
     }
-    @media screen and (min-width: 550px) {
-        .conteneur {
-            grid-template-columns: repeat(3, 1fr);
-            grid-template-areas:    "recent today calendrier"
-                                    "recent today calendrier"
-                                    "anal   contact   equipe";
-        }
-    }
+    
     
     .conteneur a {
         text-decoration: none;
@@ -68,7 +60,8 @@
         display: flex;
         justify-content: center;
         align-items: center;
-        height: 100%;
+        height: 40vh;
+        border: solid 2px;
     }
     .recent-topic {
         display: block;
@@ -129,7 +122,22 @@
       display: none;
     }
 
-
+@media screen and (min-width: 550px) {
+        .conteneur {
+            display: grid;
+            grid-gap: 10px;
+            grid-auto-rows: minmax(100px, auto);
+            grid-template-columns: repeat(3, 1fr);
+            grid-template-areas:    "recent today calendrier"
+                                    "recent today calendrier"
+                                    "anal   contact   equipe";
+        }
+        .topic {
+            height: 100%;
+            border: none;
+            
+        }
+    }
 @media screen and (max-width: 550px) {
   .topnav a:not(:first-child), .dropdown .dropbtn {
     display: none;
