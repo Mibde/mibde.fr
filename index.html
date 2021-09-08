@@ -22,12 +22,11 @@
                     <div class="recent-title">Activité Récente</div>
                     <div id="recent_content" class="recent-content"></div>
                 </div>
-                <div class="topic">Today MIBDE</div>
-                <a href="calendrier.html"><div class="topic">Calendrier</div></a>
-                <div class="topic">Annales et cours</div>
-                <a href="contact.html"><div class="topic">Contact</div></a>
-                <div class="topic">L'équipe</div>
-                <div class="topic">L'équipe</div>
+                <div class="topic today">Today MIBDE</div>
+                <a   class="calendrier" href="calendrier.html"><div class="topic">Calendrier</div></a>
+                <div class="topic anal">Annales et cours</div>
+                <a   class="contact" href="contact.html"><div class="topic">Contact</div></a>
+                <div class="topic equipe">L'équipe</div>
             </div>
         </div>
     </body>
@@ -44,8 +43,12 @@
     @media screen and (min-width: 550px) {
         .conteneur {
             grid-template-columns: repeat(3, 1fr);
+            grid-template-areas:    "recent today calendrier"
+                                    "recent today calendrier"
+                                    "anal   contact   equipe";
         }
     }
+    
     .conteneur a {
         text-decoration: none;
         color: black;
@@ -69,6 +72,23 @@
     }
     .recent-topic {
         display: block;
+        grid-area: recent;
+    }
+    .calendrier {
+        display: block;
+        grid-area: calendrier;
+    }
+    .contact {
+        grid-area: contact;
+    }
+    .today {
+        grid-area: today;
+    }
+    .anal {
+        grid-area: anal;
+    }
+    .equipe {
+        grid-area: equipe;
     }
     .recent-content {
         background-color: rgb(40, 241, 241);
@@ -186,12 +206,6 @@
               ele.innerHTML = "["+date[2]+"."+date[1]+"."+date[0] + "] : "+item[2] + " ";
               a.appendChild(ele);
             });
-            /*data.forEach((item, i) => {
-              var ele = document.createElement("div");
-              var date = new Date(item[1]);
-              ele.innerHTML = "["+date.getDay()+"."+date.getDate()+"."+date.getFullYear() + "] : "+item[2];
-              a.appendChild(ele);
-            });*/
         }
 
       get_recent_activities();
