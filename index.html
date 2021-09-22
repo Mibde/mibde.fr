@@ -22,7 +22,16 @@
                     <div class="recent-title">Activité Récente</div>
                     <div id="recent_content" class="recent-content"></div>
                 </div>
-                <div class="topic today">Today MIBDE</div>
+                <div class="topic today">
+                    <div class="today_title">Today MIBDE</div>
+                    <div id="today_conteneur">
+                        <div class="today_topic_title">2 Evenement</div>
+                        <div class="today_topic_title">3 Tutorat</div>
+                        <div class="today_topic_title">1 Divers</div>
+
+                    </div>
+
+                </div>
                 <a   class="calendrier" href="calendrier.html"><div class="topic">Calendrier</div></a>
                 <div class="topic anal">Annales et cours</div>
                 <a   class="contact" href="contact.html"><div class="topic">Contact</div></a>
@@ -39,8 +48,8 @@
         /*grid-template-columns: repeat(2, 1fr);
         */
     }
-    
-    
+
+
     .conteneur a {
         text-decoration: none;
         color: black;
@@ -63,6 +72,17 @@
         height: 40vh;
         border: solid 2px;
     }
+    #today_conteneur {
+        font-size: 1.2rem;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: space-evenly;
+        height: 100%;
+    }
+    .today_topic_title {
+
+    }
     .recent-topic {
         display: block;
         grid-area: recent;
@@ -76,6 +96,11 @@
     }
     .today {
         grid-area: today;
+        display: block;
+    }
+    .today_title {
+        display: flex;
+        justify-content: center;
     }
     .anal {
         grid-area: anal;
@@ -135,7 +160,7 @@
         .topic {
             height: 100%;
             border: none;
-            
+
         }
     }
 @media screen and (max-width: 550px) {
@@ -215,7 +240,31 @@
               a.appendChild(ele);
             });
         }
+        async function get_today() {
+            var myHeaders = new Headers();
+            var myInit = {
+                method: 'GET',
+                headers: myHeaders,
+                mode: 'no-cors',
+                site: 'none',
+                cache: 'default'
+            };
+
+            var myRequest = new Request('https://mibde.fr/get_today.php', myInit);
+            let response = await fetch(myRequest, myInit);
+            let responseText = await response.text();
+	        var data = JSON.parse(responseText);
+            console.log(data);
+            /*var a = document.getElementById("recent_content");
+            data.forEach((item, i) => {
+              var ele = document.createElement("div");
+              var date = item[1].split(" ")[0].split("-");
+              ele.innerHTML = "["+date[2]+"."+date[1]+"."+date[0] + "] : "+item[2] + " ";
+              a.appendChild(ele);
+          });*/
+        }
 
       get_recent_activities();
+      get_today();
     </script>
 </html>

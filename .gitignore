@@ -1,3 +1,7 @@
 get_recent.php
 insert_recent.php
 admin.html
+insert_activitie.php
+get_today.php
+get_activities.php
+act.html
