@@ -11,112 +11,51 @@
     <body>
         <div class="topnav" id="header">
             <a href="/" class="active">Mibde</a>
-            <a href="event">Evènement</a>
             <a href="calendrier.html">Calendrier</a>
-            <a href="#about">L'équipe</a>
+            <a href="link.html">Annal et cours</a>
             <a href="javascript:void(0);" style="font-size:15px;" class="icon" onclick="myFunction()">☰</a>
         </div>
-        <div class="flexbox">
+        <div class="flexbox-center">
             <div class="conteneur">
-                <div class="topic recent-topic">
-                    <div class="recent-title">Activités Récentes</div>
-                    <div id="recent_content" class="recent-content"></div>
-                </div>
                 <div class="topic today">
                     <div class="today_title">Today MIBDE</div>
                     <div id="today_conteneur">
                         <div class="today_topic_title">2 Evenement</div>
                         <div class="today_topic_title">3 Tutorat</div>
                         <div class="today_topic_title">1 Divers</div>
-
+                
                     </div>
-
+                
                 </div>
-                <a   class="calendrier" href="calendrier.html"><div class="topic">Calendrier</div></a>
-                <div class="topic anal">Annales et cours</div>
-                <a   class="contact" href="contact.html"><div class="topic">Contact</div></a>
-                <div class="topic equipe">L'équipe</div>
+                <div>
+                    Récent
+                </div>
             </div>
         </div>
+        <footer>
+            Hello
+        </footer>
     </body>
     <style media="screen">
-
+    .flexbox-center {
+        display: flex;
+    justify-content: center;
+    align-items: center;
+    height: calc(100vh - 28px - 1.2rem);
+    position: absolute;
+    top: calc(28px + 1.2rem);
+    width: auto;
+    }
     .conteneur {
-        width: 100%;
-        height: 100%;
-        display: block;
-        /*grid-template-columns: repeat(2, 1fr);
-        */
+        width: 90vw;
+        margin-left: auto;
+        margin-right: auto;
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        grid-gap: 10px;
     }
-
-
-    .conteneur a {
-        text-decoration: none;
-        color: black;
-    }
-    .flexbox {
-        width: 100vw;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        height: 100%;
-    }
-
-    .topic {
-        font-size: 1.4rem;
-        background-color: aquamarine;
-        border-radius: 4px;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        height: 40vh;
-        border: solid 2px;
-    }
-    #today_conteneur {
-        font-size: 1.2rem;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: space-evenly;
-        height: 100%;
-    }
-    .today_topic_title {
-
-    }
-    .recent-topic {
-        display: block;
-        grid-area: recent;
-    }
-    .calendrier {
-        display: block;
-        grid-area: calendrier;
-    }
-    .contact {
-        grid-area: contact;
-    }
-    .today {
-        grid-area: today;
-        display: block;
-    }
-    .today_title {
-        display: flex;
-        justify-content: center;
-    }
-    .anal {
-        grid-area: anal;
-    }
-    .equipe {
-        grid-area: equipe;
-    }
-    .recent-content {
-        background-color: rgb(40, 241, 241);
-        overflow-y: auto;
-    }
-    .conteneur div:hover, .conteneur a div:hover {
-        /*border-bottom: 10px solid blueviolet;
-        border-left: 10px solid blueviolet;*/
-        background-color: blueviolet;
-        color: whitesmoke;
+    .conteneur div {
+        background-color: #879de0;
     }
     .topnav {
         width : 100vw;
@@ -127,7 +66,6 @@
         overflow: hidden;
         background-color: #9b9bfe;
         box-shadow: 0 0 10px 0 black;
-        display: none;
     }
 
     .topnav a {
@@ -148,20 +86,6 @@
     }
 
 @media screen and (min-width: 550px) {
-        .conteneur {
-            display: grid;
-            grid-gap: 10px;
-            grid-auto-rows: minmax(100px, auto);
-            grid-template-columns: repeat(3, 1fr);
-            grid-template-areas:    "recent today calendrier"
-                                    "recent today calendrier"
-                                    "anal   contact   equipe";
-        }
-        .topic {
-            height: 100%;
-            border: none;
-
-        }
     }
 @media screen and (max-width: 550px) {
   .topnav a:not(:first-child), .dropdown .dropbtn {
