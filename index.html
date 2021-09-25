@@ -33,21 +33,44 @@
             </div>
         </div>
         <footer>
-            Hello
+            <li>Contact</li>
+            <li>L'équipe</li>
         </footer>
     </body>
     <style media="screen">
+        
     .flexbox-center {
         display: flex;
-    justify-content: center;
-    align-items: center;
-    height: calc(100vh - 28px - 1.2rem);
-    position: absolute;
-    top: calc(28px + 1.2rem);
-    width: auto;
+        justify-content: center;
+        align-items: center;
+        height: calc(100vh - 28px - 1.2rem - 1cm);
+        position: absolute;
+        top: calc(28px + 1.2rem );
+        width: 80vw;
+        left: 10vw;
+    }
+    .today {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+    }
+    .today_conteneur{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        flex-direction: space ;
+
+    }
+    footer {
+        height: 1cm;
+        top : calc(100vh - 1cm);
+        position: absolute;
+        width: 100vw;
     }
     .conteneur {
         width: 90vw;
+        height: 80%;
         margin-left: auto;
         margin-right: auto;
         display: grid;
