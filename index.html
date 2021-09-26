@@ -19,11 +19,18 @@
             <div class="conteneur">
                 <div class="topic today box">
                     <div class="today_title">Today MIBDE</div>
-                    <div id="today_conteneur">
-                        <div class="today_topic_title">2 Evenement</div>
-                        <div class="today_topic_title">3 Tutorat</div>
-                        <div class="today_topic_title">1 Divers</div>
-
+                    <div class="today_conteneur">
+                        <span class="today_topic_title">2 Evenement</span>
+                        <span class="today_topic_title">3 Tutorat</span>
+                        <span class="today_topic_title">1 Divers</span>
+                        <div class="activities">
+                            <div class="act_content">
+                                <div class="act_content_title">Soirée d'intégration<span class="savoir_plus" onclick="savoirplus()">En savoir plus</span></div>
+                                <div class="act_content_info">
+                                    Le bde vous propose 
+                                </div>
+                            </div>
+                        </div>
                     </div>
 
                 </div>
@@ -31,7 +38,7 @@
                     <div class="recent_conteneur">
                         Récent :
                         <div id="recent_content" class="">
-
+                            
                         </div>
                     </div>
                 </div>
@@ -54,6 +61,19 @@
         width: 80vw;
         left: 10vw;
     }
+    .savoir_plus {
+        font-size: 0.6rem;
+    }
+    .act_content_title {
+        display: flex;
+        justify-content: space-between;
+    }
+    .act_content {
+        background-color: #5454ce;
+        width: 100%;
+        padding: 4px;
+        border-radius: 4px;
+    }
     .today_title {
         font-size: 1.3rem;
         padding: 10px;
@@ -63,19 +83,15 @@
     }
     .box {
         border-radius: 4px;
+        background-color: #879de0;
     }
     .today {
         display: flex;
         flex-direction: column;
         align-items: center;
-        justify-content: center;
     }
     .today_conteneur{
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        flex-direction: space ;
-
+        width: 90%;
     }
     footer {
         height: 1cm;
@@ -92,9 +108,7 @@
         grid-template-columns: repeat(2, 1fr);
         grid-gap: 10px;
     }
-    .conteneur div {
-        background-color: #879de0;
-    }
+    
     .topnav {
         width : 100vw;
         max-width: 100%;
