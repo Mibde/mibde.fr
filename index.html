@@ -17,18 +17,23 @@
         </div>
         <div class="flexbox-center">
             <div class="conteneur">
-                <div class="topic today">
+                <div class="topic today box">
                     <div class="today_title">Today MIBDE</div>
                     <div id="today_conteneur">
                         <div class="today_topic_title">2 Evenement</div>
                         <div class="today_topic_title">3 Tutorat</div>
                         <div class="today_topic_title">1 Divers</div>
-                
+
                     </div>
-                
+
                 </div>
-                <div>
-                    Récent
+                <div class="box">
+                    <div class="recent_conteneur">
+                        Récent :
+                        <div id="recent_content" class="">
+
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
@@ -38,7 +43,7 @@
         </footer>
     </body>
     <style media="screen">
-        
+
     .flexbox-center {
         display: flex;
         justify-content: center;
@@ -48,6 +53,16 @@
         top: calc(28px + 1.2rem );
         width: 80vw;
         left: 10vw;
+    }
+    .today_title {
+        font-size: 1.3rem;
+        padding: 10px;
+    }
+    .recent_conteneur{
+        padding: 10px;
+    }
+    .box {
+        border-radius: 4px;
     }
     .today {
         display: flex;
@@ -108,9 +123,10 @@
       display: none;
     }
 
-@media screen and (min-width: 550px) {
-    }
 @media screen and (max-width: 550px) {
+    .conteneur {
+        grid-template-columns: none;
+    }
   .topnav a:not(:first-child), .dropdown .dropbtn {
     display: none;
   }
@@ -121,9 +137,6 @@
   .point {
       display: none;
   }
-}
-
-@media screen and (max-width: 550px) {
   .topnav.responsive {position: relative;}
   .topnav.responsive .icon {
     position: absolute;
@@ -176,9 +189,9 @@
             var myRequest = new Request('https://mibde.fr/get_recent.php', myInit);
             let response = await fetch(myRequest, myInit);
             let responseText = await response.text();
-            console.log(responseText);
+            //console.log(responseText);
 	          var data = JSON.parse(responseText);
-            console.log(data);
+            //console.log(data);
             var a = document.getElementById("recent_content");
             data.forEach((item, i) => {
               var ele = document.createElement("div");
@@ -202,13 +215,10 @@
             let responseText = await response.text();
 	        var data = JSON.parse(responseText);
             console.log(data);
-            /*var a = document.getElementById("recent_content");
             data.forEach((item, i) => {
-              var ele = document.createElement("div");
-              var date = item[1].split(" ")[0].split("-");
-              ele.innerHTML = "["+date[2]+"."+date[1]+"."+date[0] + "] : "+item[2] + " ";
-              a.appendChild(ele);
-          });*/
+                console.log(item);
+            });
+
         }
 
       get_recent_activities();
