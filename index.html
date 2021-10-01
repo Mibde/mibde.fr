@@ -245,9 +245,7 @@
             var myRequest = new Request('https://mibde.fr/get_recent.php', myInit);
             let response = await fetch(myRequest, myInit);
             let responseText = await response.text();
-            //console.log(responseText);
 	          var data = JSON.parse(responseText);
-            //console.log(data);
             var a = document.getElementById("recent_content");
             data.forEach((item, i) => {
               var ele = document.createElement("div");
@@ -281,7 +279,7 @@
         savoir_plus.innerHTML = "+";
         function generate_today() {
             var i = 1;
-            //var data = get_today();
+            var data = get_today();
             //Generate activities
             var act_content = document.createElement("div");
             act_content.classList.add("act_content");
