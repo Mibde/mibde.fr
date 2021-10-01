@@ -280,34 +280,38 @@
         function generate_today() {
             var i = 1;
             var data = get_today();
+
+            data.forEach(element => {
+                var act_content = document.createElement("div");
+                act_content.classList.add("act_content");
+                var act_content_title = document.createElement("div");
+                act_content_title.classList.add("act_content_title");
+                var act_content_title_text = document.createElement("div");
+                act_content_title_text.classList.add("act_content_title_text");
+                act_content_title_text.innerHTML = item[1];
+
+                var savoir = savoir_plus.cloneNode(1);
+                savoir.id = 1;
+                savoir.addEventListener('click', show_activitie);
+                var act_content_info = document.createElement("div");
+                act_content_info.classList.add("act_content_info");
+                act_content_info.classList.add("hide");
+                act_content_info.id = "act_content_info_" + i;
+                act_content_info.innerHTML = item[2];
+
+                act_content_title.appendChild(act_content_title_text);
+                act_content_title.appendChild(savoir);
+
+                var activites = document.getElementById("activites");
+                var act_content = document.createElement("div");
+                act_content.classList.add("act_content");
+
+                act_content.appendChild(act_content_title);
+                act_content.appendChild(act_content_info);
+                activites.appendChild(act_content);
+            });
             //Generate activities
-            var act_content = document.createElement("div");
-            act_content.classList.add("act_content");
-            var act_content_title = document.createElement("div");
-            act_content_title.classList.add("act_content_title");
-            var act_content_title_text = document.createElement("div");
-            act_content_title_text.classList.add("act_content_title_text");
-            act_content_title_text.innerHTML = "BDE";
-
-            var savoir = savoir_plus.cloneNode(1);
-            savoir.id = 1;
-            savoir.addEventListener('click', show_activitie);
-            var act_content_info = document.createElement("div");
-            act_content_info.classList.add("act_content_info");
-            act_content_info.classList.add("hide");
-            act_content_info.id = "act_content_info_"+i;
-            act_content_info.innerHTML = "ALL";
-
-            act_content_title.appendChild(act_content_title_text);
-            act_content_title.appendChild(savoir);
-
-            var activites = document.getElementById("activites");
-            var act_content = document.createElement("div");
-            act_content.classList.add("act_content");
-
-            act_content.appendChild(act_content_title);
-            act_content.appendChild(act_content_info);
-            activites.appendChild(act_content);
+            
         }
         function show_activitie(event) {
             //console.log(event);
