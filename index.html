@@ -70,6 +70,7 @@
         display: flex;
         align-items: center;
         padding: 4px;
+        padding: 10px
     }
     .act_content_title {
         display: grid;
@@ -77,6 +78,7 @@
     }
     .act_content_info {
         transition: all;
+        padding: 10px;
     }
     .hide {
         display: none;
@@ -283,6 +285,10 @@
 
                     var savoir = savoir_plus.cloneNode(1);
                     savoir.id = i;
+                    if(item[3] == "event") savoir.classList.add("event");
+                    else if(item[3] == "pedagogie") savoir.classList.add("pedagogie");
+                    else if(item[3] == "autre") savoir.classList.add("diver");
+
                     savoir.addEventListener('click', show_activitie);
                     var act_content_info = document.createElement("div");
                     act_content_info.classList.add("act_content_info");
