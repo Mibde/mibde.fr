@@ -25,20 +25,8 @@
                             <span class="today_topic_title tutorat">3 Tutorat</span>
                             <span class="today_topic_title diver">1 Divers</span>
                         </div>
-                        
+
                         <div id="activites" class="activities">
-                            <div class="act_content">
-                                <div class="act_content_title"><div class="act_content_title_text">Soirée d'intégration</div><div class="savoir_plus" onclick="show_activitie()">+</div></div>
-                                <div class="act_content_info">
-                                    Le bde vous propose une soirée d'intégration le 14 octobre.
-                                </div>
-                            </div>
-                            <div class="act_content">
-                                <div class="act_content_title"><div class="act_content_title_text">Soirée d'intégration</div><div class="savoir_plus" onclick="show_activitie()">+</div></div>
-                                <div class="act_content_info">
-                                    Le bde vous propose une soirée d'intégration le 14 octobre.
-                                </div>
-                            </div>
                         </div>
                     </div>
 
@@ -47,7 +35,7 @@
                     <div class="recent_conteneur">
                         Récent :
                         <div id="recent_content" class="">
-                            
+
                         </div>
                     </div>
                 </div>
@@ -86,6 +74,9 @@
     .act_content_title {
         display: grid;
         grid-template-columns: 80% 20%;
+    }
+    .act_content_info {
+        transition: all;
     }
     .hide {
         display: none;
@@ -150,7 +141,7 @@
         grid-template-columns: repeat(2, 1fr);
         grid-gap: 10px;
     }
-    
+
     .topnav {
         width : 100vw;
         max-width: 100%;
@@ -268,10 +259,10 @@
             let response = await fetch(myRequest, myInit);
             let responseText = await response.text();
 	        var data = JSON.parse(responseText);
-            console.log(data);
+            /*console.log(data);
             data.forEach((item, i) => {
                 console.log(item);
-            });
+            });*/
             return data;
         }
         var savoir_plus = document.createElement("div");
@@ -279,39 +270,42 @@
         savoir_plus.innerHTML = "+";
         function generate_today() {
             var i = 1;
-            var data = get_today();
+            get_today().then(data => {
+                data.forEach((item, i) => {
+                    console.log(item);
+                    var act_content = document.createElement("div");
+                    act_content.classList.add("act_content");
+                    var act_content_title = document.createElement("div");
+                    act_content_title.classList.add("act_content_title");
+                    var act_content_title_text = document.createElement("div");
+                    act_content_title_text.classList.add("act_content_title_text");
+                    act_content_title_text.innerHTML = item[1];
 
-            data.forEach(element => {
-                var act_content = document.createElement("div");
-                act_content.classList.add("act_content");
-                var act_content_title = document.createElement("div");
-                act_content_title.classList.add("act_content_title");
-                var act_content_title_text = document.createElement("div");
-                act_content_title_text.classList.add("act_content_title_text");
-                act_content_title_text.innerHTML = item[1];
+                    var savoir = savoir_plus.cloneNode(1);
+                    savoir.id = i;
+                    savoir.addEventListener('click', show_activitie);
+                    var act_content_info = document.createElement("div");
+                    act_content_info.classList.add("act_content_info");
+                    act_content_info.classList.add("hide");
+                    act_content_info.id = "act_content_info_" + i;
+                    act_content_info.innerHTML = item[4];
 
-                var savoir = savoir_plus.cloneNode(1);
-                savoir.id = 1;
-                savoir.addEventListener('click', show_activitie);
-                var act_content_info = document.createElement("div");
-                act_content_info.classList.add("act_content_info");
-                act_content_info.classList.add("hide");
-                act_content_info.id = "act_content_info_" + i;
-                act_content_info.innerHTML = item[2];
+                    act_content_title.appendChild(act_content_title_text);
+                    act_content_title.appendChild(savoir);
 
-                act_content_title.appendChild(act_content_title_text);
-                act_content_title.appendChild(savoir);
+                    var activites = document.getElementById("activites");
+                    var act_content = document.createElement("div");
+                    act_content.classList.add("act_content");
 
-                var activites = document.getElementById("activites");
-                var act_content = document.createElement("div");
-                act_content.classList.add("act_content");
-
-                act_content.appendChild(act_content_title);
-                act_content.appendChild(act_content_info);
-                activites.appendChild(act_content);
+                    act_content.appendChild(act_content_title);
+                    act_content.appendChild(act_content_info);
+                    activites.appendChild(act_content);
+                });
             });
+            //var data = JSON.parse();
+
             //Generate activities
-            
+
         }
         function show_activitie(event) {
             //console.log(event);
@@ -328,4 +322,11 @@
       generate_today();
       //get_today();
     </script>
+
+    <!--<div class="act_content">
+        <div class="act_content_title"><div class="act_content_title_text">Soirée d'intégration</div><div class="savoir_plus" onclick="show_activitie()">+</div></div>
+        <div class="act_content_info">
+            Le bde vous propose une soirée d'intégration le 14 octobre.
+        </div>
+    </div>-->
 </html>
