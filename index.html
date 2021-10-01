@@ -20,14 +20,17 @@
                 <div class="topic today box">
                     <div class="today_title">Today MIBDE</div>
                     <div class="today_conteneur">
-                        <span class="today_topic_title">2 Evenement</span>
-                        <span class="today_topic_title">3 Tutorat</span>
-                        <span class="today_topic_title">1 Divers</span>
+                        <div class="categorie_conteneur">
+                            <span class="today_topic_title event">2 Evenement</span>
+                            <span class="today_topic_title tutorat">3 Tutorat</span>
+                            <span class="today_topic_title diver">1 Divers</span>
+                        </div>
+                        
                         <div class="activities">
                             <div class="act_content">
-                                <div class="act_content_title">Soirée d'intégration<span class="savoir_plus" onclick="savoirplus()">En savoir plus</span></div>
+                                <div class="act_content_title"><div class="act_content_title_text">Soirée d'intégration</div><div class="savoir_plus" onclick="savoirplus()">+</div></div>
                                 <div class="act_content_info">
-                                    Le bde vous propose 
+                                    Le bde vous propose une soirée d'intégration le 14 octobre.
                                 </div>
                             </div>
                         </div>
@@ -62,21 +65,52 @@
         left: 10vw;
     }
     .savoir_plus {
-        font-size: 0.6rem;
+        font-size: 1.5rem;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background-color: aliceblue;
+    }
+    .act_content_title_text {
+        display: flex;
+        align-items: center;
+        padding: 4px;
     }
     .act_content_title {
-        display: flex;
-        justify-content: space-between;
+        display: grid;
+        grid-template-columns: 80% 20%;
+    }
+    .act_content_info {
+        display: none;
     }
     .act_content {
         background-color: #5454ce;
         width: 100%;
-        padding: 4px;
         border-radius: 4px;
     }
     .today_title {
         font-size: 1.3rem;
         padding: 10px;
+    }
+    .categorie_conteneur {
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr;
+        margin-bottom: 20px;
+    }
+
+    .today_topic_title {
+        display: flex;
+        justify-content: center;
+        padding: 5px;
+    }
+    .event {
+        background-color: antiquewhite;
+    }
+    .tutorat {
+        background-color: azure;
+    }
+    .diver {
+        background-color:brown;
     }
     .recent_conteneur{
         padding: 10px;
