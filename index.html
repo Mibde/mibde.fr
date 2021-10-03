@@ -257,7 +257,7 @@
                 cache: 'default'
             };
 
-            var myRequest = new Request('https://mibde.fr/get_today.php', myInit);
+            var myRequest = new Request('https://mibde.fr/get_week.php', myInit);
             let response = await fetch(myRequest, myInit);
             let responseText = await response.text();
 	        var data = JSON.parse(responseText);
