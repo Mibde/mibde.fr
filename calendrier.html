@@ -177,6 +177,20 @@
         function deletethis() {
             this.classList.toggle("bite");
         }
+
+        function get_month() {
+            function reqListener() {
+                var data = JSON.parse(this.responseText);
+            }
+
+            var oReq = new XMLHttpRequest();
+            oReq.onload = reqListener;
+            oReq.open("get", "get_month.php", true);
+            oReq.send();
+            
+        }
+
+        get_month();
     </script>
 </body>
 </html>
