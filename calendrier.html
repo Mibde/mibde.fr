@@ -21,11 +21,11 @@
             <div><span class="icon">2</span> <span>Pédagogie</span></div>
             <div><span class="icon">3</span> <span>Events</span></div>
             <div><span class="icon">1</span> <span>Autres</span></div>
-    
+
         </div>
     </div>
     <div class="conteneur" id ="calendrier">
-        
+
         <!--<div class="conteneur_day">
             <div class="day">
                 <h1>1</h1>
@@ -41,7 +41,7 @@
         .conteneur {
             display: grid;
             grid-template-columns: repeat(7, 1fr);
-            grid-gap: 10px;
+            /*grid-gap: 10px;*/
             grid-auto-rows: minmax(100px, auto);
             width: 100vw;
             height: calc(100vh - 1cm);
@@ -128,41 +128,31 @@
         }
     </style>
     <script>
-        function generate_cellule(i) {
+    var evenement = [...new Array(31)].map(elem => new Array().fill(null));
+        function generate_cellule(i ) {
             var conteneur = document.createElement('div');
             var day = document.createElement('div');
             var day2 = document.createElement('div');
-            var activities = document.createElement('div');
             var number_day = document.createElement('h1');
             conteneur.className = "conteneur_day";
             conteneur.id = i;
             day.className = "day";
+            day2.id="day2_"+i;
             day2.className = "day";
             number_day.innerHTML = i;
-            var event = document.createElement("span");
-            event.innerHTML = "3";
-            let categorie = event.cloneNode(true);
-            event.className = "icon";
-            categorie.innerHTML = " event";
-            activities.appendChild(event);
-            activities.appendChild(categorie);
-            
             day.appendChild(number_day);
             conteneur.appendChild(day);
-            day2.appendChild(activities);
-            day2.appendChild(activities.cloneNode(true));
-            day2.appendChild(activities.cloneNode(true));
             conteneur.appendChild(day2);
             document.getElementById("calendrier").appendChild(conteneur);
         }
         for(var i = 1; i <= 31; i++) {
-            generate_cellule(i);
+            generate_cellule(i );
         }
 
         document.getElementById('calendrier').addEventListener('click', showthisday);
         document.getElementById('information').addEventListener('click', deletethis);
         var active = null;
-        
+
         function showthisday(event) {
             event.path.forEach(element => {
                 if(element.classList.contains("conteneur_day")) {
@@ -177,17 +167,80 @@
         function deletethis() {
             this.classList.toggle("bite");
         }
-
         function get_month() {
             function reqListener() {
                 var data = JSON.parse(this.responseText);
+                data.forEach((item, i) => {
+                    var day = parseInt((item[2].split(" "))[0].split("-")[2]);
+                    console.log(day);
+                    evenement[day].push(item);
+                    /*
+                    var event = document.createElement("span");
+                    event.innerHTML = "3";
+                    let categorie = event.cloneNode(true);
+                    event.className = "icon";
+                    categorie.innerHTML = " event";
+                    activities.appendChild(event);
+                    activities.appendChild(categorie);
+                    */
+                    /*day2.appendChild(activities);
+                    day2.appendChild(activities.cloneNode(true));
+                    day2.appendChild(activities.cloneNode(true));*/
+                });
+
+                evenement.forEach((day, i) => {
+                    var e = 0, p = 0, d = 0;
+
+                    day.forEach((item, k) => {
+                        if (item[3] == "event") e++;
+                        else if (item[3] == "pedagogie") p++;
+                        else if(item[3] == "diver") d++;
+                    });
+                    if(e > 0) {
+                        var activities = document.createElement('div');
+                        var event = document.createElement("span");
+                        event.innerHTML = e;
+                        event.className = "icon";
+                        let categorie = document.createElement("span");
+                        categorie.innerHTML = " event";
+                        activities.appendChild(event);
+                        activities.appendChild(categorie);
+                        document.getElementById("day2_"+i).appendChild(activities);
+                    }
+                    if(p > 0) {
+                        var activities = document.createElement('div');
+                        var event = document.createElement("span");
+                        event.innerHTML = p;
+                        event.className = "icon";
+                        let categorie = document.createElement("span");
+                        categorie.innerHTML = " pedagogie";
+                        activities.appendChild(event);
+                        activities.appendChild(categorie);
+                        document.getElementById("day2_"+i).appendChild(activities);
+                    }
+                    if(d > 0) {
+                        var activities = document.createElement('div');
+                        var event = document.createElement("span");
+                        event.innerHTML = d;
+                        event.className = "icon";
+                        let categorie = document.createElement("span");
+                        categorie.innerHTML = " diver";
+                        activities.appendChild(event);
+                        activities.appendChild(categorie);
+                        document.getElementById("day2_"+i).appendChild(activities);
+                    }
+
+                    //activites
+                });
+
+                console.log(evenement);
             }
 
             var oReq = new XMLHttpRequest();
             oReq.onload = reqListener;
             oReq.open("get", "get_month.php", true);
             oReq.send();
-            
+
         }
 
         get_month();
