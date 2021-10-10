@@ -234,13 +234,14 @@
                 site: 'none',
                 cache: 'default'
             };
-
+            //effectue une requette http vers get_recent.php
             var myRequest = new Request('https://mibde.fr/get_recent.php', myInit);
             let response = await fetch(myRequest, myInit);
             let responseText = await response.text();
 	          var data = JSON.parse(responseText);
             var a = document.getElementById("recent_content");
             data.forEach((item, i) => {
+            //Ajoute à la div "recent_content" les activités récent avec la date 
               var ele = document.createElement("div");
               var date = item[1].split(" ")[0].split("-");
               ele.innerHTML = "["+date[2]+"."+date[1]+"."+date[0] + "] : "+item[2] + " ";
@@ -265,6 +266,7 @@
             data.forEach((item, i) => {
                 console.log(item);
             });*/
+            //Cette fonction retourne les activitées prévue pour les 7jours à venir
             return data;
         }
         var savoir_plus = document.createElement("div");
@@ -273,7 +275,9 @@
         function generate_today() {
             var i = 1;
             get_today().then(data => {
+                //parcours le tableau des activitées
                 data.forEach((item, i) => {
+                    //Génère des div pour y insérer des informations relative aux évenement
                     console.log(item);
                     var act_content = document.createElement("div");
                     act_content.classList.add("act_content");
