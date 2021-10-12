@@ -12,11 +12,11 @@
         <div class="topnav" id="header">
             <a href="/" class="active">Mibde</a>
             <a href="calendrier.html">Calendrier</a>
-            <a href="link.html">Annales et cours</a>
+            <a href="annales_cours.html">Annales et cours</a>
             <a href="javascript:void(0);" style="font-size:15px;" class="icon" onclick="myFunction()">☰</a>
         </div>
         <div class="flexbox-center">
-            <div class="conteneur">
+            <div class="conteneur"> 
                 <div class="topic today box">
                     <div class="today_title">Evenement à venir</div>
                     <div class="today_conteneur">
@@ -241,7 +241,7 @@
 	          var data = JSON.parse(responseText);
             var a = document.getElementById("recent_content");
             data.forEach((item, i) => {
-            //Ajoute à la div "recent_content" les activités récent avec la date 
+            //Ajoute à la div "recent_content" les activités récent avec la date
               var ele = document.createElement("div");
               var date = item[1].split(" ")[0].split("-"); //Recupère uniquement la date sans l'heure
               ele.innerHTML = "["+date[2]+"."+date[1]+"."+date[0] + "] : "+item[2] + " ";
@@ -294,7 +294,7 @@
                    var act_content_title_text = document.createElement("div");
                    var act_content_info = document.createElement("div");
                    var savoir = savoir_plus.cloneNode(1);
-                   
+
                    //ajoute la class au div correspondante
                    act_content.classList.add("act_content");
                    act_content_title.classList.add("act_content_title");
@@ -315,7 +315,7 @@
                     //Ajoute à "act_content" les elements qu'il contient selon le model
                     act_content_title.appendChild(act_content_title_text);
                     act_content_title.appendChild(savoir);
-                    
+
                     act_content.appendChild(act_content_title);
                     act_content.appendChild(act_content_info);
                     //Ajoute le tout à la page web, dans la div "activities"
