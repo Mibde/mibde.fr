@@ -9,3 +9,10 @@ get_week.php
 inscription.docx
 get_month.php
 cours/
+
+# ASSETS
+node_modules
+.DS_Store
+dist
+dist-ssr
+*.local
