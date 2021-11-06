@@ -1,0 +1,9 @@
+FROM node:latest
+
+ENV NPM_CONFIG_LOGLEVEL info
+
+WORKDIR /usr/src/app
+
+COPY ./package.json .
+
+RUN yarn

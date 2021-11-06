@@ -6,12 +6,12 @@ services:
         build:
             context: .
             dockerfile: docker/images/Dockerfile.server
-        volumes: 
+        volumes:
             - .:/go/src/app:z
         ports:
             - 8080:8080
         command: bee run
-        dependss_on: 
+        dependss_on:
             - db
         links:
             - db
@@ -26,6 +26,15 @@ services:
             - 3306:3306
         volumes:
             - mariadata:/var/lib/mysql:z
-        
+
+    assets:
+        container_name: mibde_fr_assets
+        build:
+            context: .
+            dockerfile: docker/images/Dockerfile.assets
+        volumes:
+            - .:/usr/src/app:z
+        command: yarn dev
+
 volumes:
     mariadata:
