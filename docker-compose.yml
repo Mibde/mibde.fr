@@ -1,0 +1,31 @@
+version: "3.4"
+
+services:
+    server:
+        container_name: mibde_fr_server
+        build:
+            context: .
+            dockerfile: docker/images/Dockerfile.server
+        volumes: 
+            - .:/go/src/app:z
+        ports:
+            - 8080:8080
+        command: bee run
+        dependss_on: 
+            - db
+        links:
+            - db
+        env_file: .env
+
+    db:
+        container_name: mibde_fr_db
+        image: mariadb:latest
+        restart: always
+        env_file: .env
+        ports:
+            - 3306:3306
+        volumes:
+            - mariadata:/var/lib/mysql:z
+        
+volumes:
+    mariadata:

@@ -1,0 +1,9 @@
+FROM golang:latest
+
+WORKDIR /go/src/app
+COPY . .
+
+ENV PATH "$GOPATH/bin:$PATH"
+
+RUN go get -d -v ./... && go install github.com/beego/bee/v2@latest
+RUN go install -v ./...
