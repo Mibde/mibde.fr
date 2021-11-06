@@ -1,0 +1,27 @@
+$colors: (
+    default: #666,
+    default-background: #fff,
+    primary: #1e87f0,
+    primary-background: lighten(mix(white, #1e87f0, 40%), 25%),
+    secondary: #222,
+    secondary-background: lighten(mix(white, #222, 40%), 25%),
+);
+
+$space: 1rem;
+$spaces: (
+    init: 0,
+    xsmall: $space * 0.25,
+    small: $space * 0.5,
+    medium: $space,
+    large: $space * 1.5,
+    xlarge: $space * 3,
+);
+
+// Navbar variables
+$navbar-padding: map-get($spaces, large);
+$navbar-item-padding: map-get($spaces, large);
+$navbar-background: map-get($colors, primary-background);
+$navbar-color: map-get($colors, primary);
+$navbar-active-color: darken($navbar-color, 20);
+$navbar-separator-height: 2.4em;
+$navbar-separator-width: 3px;

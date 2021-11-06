@@ -1,0 +1,19 @@
+@mixin reset {
+    margin: map-get($spaces, init);
+    padding: map-get($spaces, init);
+}
+
+@mixin reset-link {
+    text-decoration: none;
+    color: map-get($colors, default);
+}
+
+@mixin padding-horizontal($size) {
+    padding-bottom: $size;
+    padding-top: $size;
+}
+
+@mixin padding-vertical($size: map-get($spaces, medium)) {
+    padding-left: $size;
+    padding-right: $size;
+}
