@@ -10,4 +10,17 @@ inscription.docx
 get_month.php
 cours/
 *.tmp
+
+# Executables
 mibde.fr
+app
+
+# Assets
+node_modules
+.DS_Store
+dist
+dist-ssr
+*.local
+.yarn
+*.cjs
+static/build
