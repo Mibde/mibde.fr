@@ -1,3 +1,9 @@
-body {
-  background-color: red;
-}
+@import "utils/variables";
+
+@import "utils/mixins/index";
+@import "utils/mixins/flex";
+
+@import "base/fonts";
+@import "base/index";
+
+@import "layouts/navbar";

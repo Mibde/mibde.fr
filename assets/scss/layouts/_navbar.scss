@@ -1,0 +1,31 @@
+.navbar {
+    @include flex-center();
+    @include padding-horizontal($navbar-padding);
+    background-color: $navbar-background;
+
+    &__item {
+        @include flex-center();
+
+        &__separator {
+            display: block;
+            content: "";
+            height: $navbar-separator-height;
+            width: $navbar-separator-width;
+            background-color: map-get($colors, default);
+            z-index: 1;
+        }
+
+        &--active > a {
+            color: $navbar-active-color;
+            cursor: default;
+        }
+
+        > a {
+            @include padding-vertical($navbar-item-padding);
+            color: $navbar-color;
+            &:hover {
+                color: $navbar-active-color;
+            }
+        }
+    }
+}
