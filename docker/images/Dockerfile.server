@@ -6,4 +6,4 @@ COPY . .
 ENV PATH "$GOPATH/bin:$PATH"
 
 RUN go get -d -v ./... && go install github.com/beego/bee/v2@latest
-RUN go install -v ./...
+RUN go install -v ./...&& go get -v golang.org/x/tools/gopls
