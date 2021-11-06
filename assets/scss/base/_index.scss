@@ -1,0 +1,14 @@
+body,
+html {
+    min-height: 100vh;
+    @include reset();
+}
+
+body {
+    @include flex-space();
+    @include flex-column();
+
+    a {
+        @include reset-link();
+    }
+}
