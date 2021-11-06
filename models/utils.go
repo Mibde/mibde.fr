@@ -1,6 +1,7 @@
 package models
 
 import (
+	"fmt"
 	"os"
 
 	"github.com/beego/beego/v2/adapter/orm"
@@ -16,5 +17,11 @@ func Init() {
 	orm.RegisterDriver("mysql", orm.DRMySQL)
 
 	orm.RegisterDataBase("default", "mysql", GetDsn())
+
+	if err := orm.RunSyncdb("default", false, true); err != nil {
+		fmt.Println(err)
+	} else {
+		fmt.Println("Sync")
+	}
 
 }
