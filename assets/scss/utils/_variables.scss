@@ -1,0 +1,82 @@
+// ==============================
+// | Breakpoints for responsive |
+// ==============================
+$breakpoints: (
+    sm: 640px,
+    md: 960px,
+    lg: 1200px,
+    xl: 1600px,
+);
+
+// =========
+// | Utils |
+// =========
+
+$spacer: 1rem;
+$shadow-size: 1rem;
+
+$spacers: (
+    0: 0,
+    1: $spacer * 0.25,
+    2: $spacer * 0.5,
+    3: $spacer,
+    4: $spacer * 1.5,
+    5: $spacer * 3,
+    6: $spacer * 4.5,
+    7: $spacer * 6,
+);
+
+$font-size-base: 1rem;
+
+$font-sizes: (
+    1: $font-size-base * 3,
+    2: $font-size-base * 2.5,
+    3: $font-size-base * 2,
+    4: $font-size-base * 1.5,
+);
+
+$border-radius: (
+    default: 0.25rem,
+    sm: 0.2rem,
+    lg: 0.3rem,
+);
+
+// ===============
+// | Transitions |
+// ===============
+$transitions: (
+    default: 0.5s,
+    fast: 0.25s,
+    slow: 0.75s,
+);
+
+// ==============
+// | Components |
+// ==============
+
+// Buttons
+$btn-paddings: (
+    y: (
+        sm: 0.25rem,
+        lg: 0.5rem,
+    ),
+    x: (
+        sm: 0.5rem,
+        lg: 1rem,
+    ),
+);
+
+// Navbar
+$navbar-size: 20em;
+
+// ==========
+// | Colors |
+// ==========
+$colors: (
+    primary: #3d5a80,
+    secondary: #98c1d9,
+    background: #e0fbfc,
+    warning: #ee6c4d,
+    default: #293241,
+    shadow: rgba(#293241, 0.2),
+);

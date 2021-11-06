@@ -1,0 +1,11 @@
+version: '3'
+
+services:
+    web:
+        build:
+            context: .
+        command: yarn dev --host 0.0.0.0
+        volumes:
+            - .:/usr/app:z
+        ports:
+            - 3000:3000

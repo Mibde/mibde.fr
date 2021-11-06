@@ -1,0 +1,17 @@
+html {
+    margin: 0px 0px;
+    padding: 0px 0px;
+    background-color: map-get($map: $colors, $key: background);
+
+    min-height: 100vh;
+
+    body {
+        height: 100vh;
+        display: flex;
+        justify-content: space-between;
+        flex-direction: column;
+
+        margin: 0px 0px;
+        padding: 0px 0px;
+    }
+}

@@ -1,343 +1,67 @@
 <!DOCTYPE html>
 <html lang="fr">
-    <header>
-        <title>Mibde</title>
-        <meta charset="utf-8">
-        <title>MIBDE</title>
-        <meta name="theme-color" content="#212633">
-        <meta name="description" content="Site web du Mibde"/>
-        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    </header>
-    <body>
-        <div class="topnav" id="header">
-            <a href="/" class="active">Mibde</a>
-            <a href="calendrier.html">Calendrier</a>
-            <a href="annales_cours.html">Annales et cours</a>
-            <a href="javascript:void(0);" style="font-size:15px;" class="icon" onclick="myFunction()">☰</a>
+
+<head>
+    <title>Mibde</title>
+    <meta charset="utf-8">
+    <title>MIBDE</title>
+    <meta name="theme-color" content="#212633">
+    <meta name="description" content="Site web du Mibde" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <link rel="stylesheet" href="./assets/scss/style.scss" />
+    <link rel="stylesheet" href="./assets/scss/pages/index.scss">
+
+    <script type="module" src="./assets/js/main.js" defer></script>
+</head>
+
+<body>
+    <nav id="header" class="navbar">
+        <div class="navbar__item navbar__item--active">
+            <a href="/">Mibde</a>
         </div>
-        <div class="flexbox-center">
-            <div class="conteneur"> 
-                <div class="topic today box">
-                    <div class="today_title">Evenement à venir</div>
-                    <div class="today_conteneur">
-                        <div class="categorie_conteneur">
-                            <span class="today_topic_title event">2 Evenement</span>
-                            <span class="today_topic_title tutorat">3 Tutorat</span>
-                            <span class="today_topic_title diver">1 Divers</span>
-                        </div>
-
-                        <div id="activites" class="activities">
-                        </div>
-                    </div>
-
+        <!--
+        <div class="navbar__item">
+            <img src="./assets/images/mibde-logo.jpg" class="navbar__item__logo" alt="Logo of MIBDE" />
+        </div> 
+        -->
+        <div class="navbar__item">
+            <a href="calendrier.html">Calendrier</a>
+        </div>
+        <div class="navbar__item">
+            <a href="annales_cours.html">Annales et cours</a>
+        </div>
+        <a href="javascript:void(0);" style="font-size:15px;" class="navbar__burger icon" onclick="myFunction()">☰</a>
+    </nav>
+    <section class="container container--grid cards">
+        <div class="card card--large card--radius card--hover">
+            <h2 class="card__title">Évènements à venir</h2>
+            <div class="card__content">
+                <div class="categories">
+                    <span class="today_topic_title event">2 Évènements</span>
+                    <span class="today_topic_title tutorat">3 Tutorat</span>
+                    <span class="today_topic_title diver">1 Divers</span>
                 </div>
-                <div class="box">
-                    <div class="recent_conteneur">
-                        Récent :
-                        <div id="recent_content" class="">
 
-                        </div>
-                    </div>
+                <div id="activites" class="activities">
+                </div>
+            </div>
+
+        </div>
+        <div class="card card--large card--hover card--radius">
+            <div class="recent_conteneur">
+                <h2 class="card__title">Récent</h2>
+                <div id="recent_content" class="">
+
                 </div>
             </div>
         </div>
-        <footer>
-            <li>Contact</li>
-            <li>L'équipe</li>
-        </footer>
-    </body>
-    <style media="screen">
+    </section>
+    <footer>
+        <li>Contact</li>
+        <li>L'équipe</li>
+    </footer>
 
-    .flexbox-center {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        height: calc(100vh - 28px - 1.2rem - 1cm);
-        position: absolute;
-        top: calc(28px + 1.2rem );
-        width: 80vw;
-        left: 10vw;
-    }
-    .savoir_plus {
-        font-size: 1.5rem;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        background-color: aliceblue;
-        user-select: none;
-    }
-    .act_content_title_text {
-        display: flex;
-        align-items: center;
-        padding: 4px;
-        padding: 10px
-    }
-    .act_content_title {
-        display: grid;
-        grid-template-columns: 80% 20%;
-    }
-    .act_content_info {
-        transition: all;
-        padding: 10px;
-    }
-    .hide {
-        display: none;
-    }
-    .act_content {
-        background-color: #5454ce;
-        width: 100%;
-        border-radius: 4px;
-        margin-bottom: 10px;
-    }
-    .today_title {
-        font-size: 1.3rem;
-        padding: 10px;
-    }
-    .categorie_conteneur {
-        display: grid;
-        grid-template-columns: 1fr 1fr 1fr;
-        margin-bottom: 20px;
-    }
+</body>
 
-    .today_topic_title {
-        display: flex;
-        justify-content: center;
-        padding: 5px;
-    }
-    .event {
-        background-color: antiquewhite;
-    }
-    .tutorat {
-        background-color: azure;
-    }
-    .diver {
-        background-color:brown;
-    }
-    .recent_conteneur{
-        padding: 10px;
-    }
-    .box {
-        border-radius: 4px;
-        background-color: #879de0;
-    }
-    .today {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-    }
-    .today_conteneur{
-        width: 90%;
-    }
-    footer {
-        height: 1cm;
-        top : calc(100vh - 1cm);
-        position: absolute;
-        width: 100vw;
-    }
-    .conteneur {
-        width: 90vw;
-        height: 80%;
-        margin-left: auto;
-        margin-right: auto;
-        display: grid;
-        grid-template-columns: repeat(2, 1fr);
-        grid-gap: 10px;
-    }
-
-    .topnav {
-        width : 100vw;
-        max-width: 100%;
-        top:0;
-        position: fixed;
-        z-index: 2;
-        overflow: hidden;
-        background-color: #9b9bfe;
-        box-shadow: 0 0 10px 0 black;
-    }
-
-    .topnav a {
-        float: left;
-        display: block;
-        color: black;
-        text-align: center;
-        padding: 14px 16px;
-        text-decoration: none;
-        font-size: 17px;
-    }
-    .active {
-      background-color: aquamarine;
-      color: white;
-    }
-    .topnav .icon {
-      display: none;
-    }
-
-@media screen and (max-width: 550px) {
-    .conteneur {
-        grid-template-columns: none;
-    }
-  .topnav a:not(:first-child), .dropdown .dropbtn {
-    display: none;
-  }
-  .topnav a.icon {
-    float: right;
-    display: block;
-  }
-  .point {
-      display: none;
-  }
-  .topnav.responsive {position: relative;}
-  .topnav.responsive .icon {
-    position: absolute;
-    right: 0;
-    top: 0;
-  }
-  .topnav.responsive a {
-    float: none;
-    display: block;
-    text-align: left;
-  }
-  .topnav.responsive .dropdown {float: none;}
-  .topnav.responsive .dropdown-content {position: relative;}
-  .topnav.responsive .dropdown .dropbtn {
-    display: block;
-    width: 100%;
-    text-align: left;
-  }
-}
-    body {
-        margin: 0;
-        padding: 0;
-        color: #1d212d;
-        width: 100vw;
-        height: 100vh;
-        font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
-    }
-    </style>
-    <script type="text/javascript" async>
-        function myFunction() {
-            var x = document.getElementById("header");
-            if (x.className === "topnav") {
-                x.className += " responsive";
-            } else {
-                x.className = "topnav";
-            }
-        }
-
-        async function get_recent_activities() {
-            var myHeaders = new Headers();
-            myHeaders.set('Access-Control-Allow-Origin', '*');
-            var myInit = {
-                method: 'GET',
-                headers: myHeaders,
-                mode: 'no-cors',
-                site: 'none',
-                cache: 'default'
-            };
-            //effectue une requette http vers get_recent.php
-            var myRequest = new Request('https://mibde.fr/get_recent.php', myInit);
-            let response = await fetch(myRequest, myInit);
-            let responseText = await response.text();
-	          var data = JSON.parse(responseText);
-            var a = document.getElementById("recent_content");
-            data.forEach((item, i) => {
-            //Ajoute à la div "recent_content" les activités récent avec la date
-              var ele = document.createElement("div");
-              var date = item[1].split(" ")[0].split("-"); //Recupère uniquement la date sans l'heure
-              ele.innerHTML = "["+date[2]+"."+date[1]+"."+date[0] + "] : "+item[2] + " ";
-              a.appendChild(ele);
-            });
-        }
-        async function get_today() {
-            var myHeaders = new Headers();
-            var myInit = {
-                method: 'GET',
-                headers: myHeaders,
-                mode: 'no-cors',
-                site: 'none',
-                cache: 'default'
-            };
-
-            var myRequest = new Request('https://mibde.fr/get_week.php', myInit);
-            let response = await fetch(myRequest, myInit);
-            let responseText = await response.text();
-	        var data = JSON.parse(responseText);
-            /*console.log(data);
-            data.forEach((item, i) => {
-                console.log(item);
-            });*/
-            //Cette fonction retourne les activitées prévue pour les 7jours à venir
-            return data;
-        }
-        var savoir_plus = document.createElement("div");
-        savoir_plus.classList.add("savoir_plus");
-        savoir_plus.innerHTML = "+";
-        function generate_today() {
-            var i = 1;
-            get_today().then(data => {
-                //parcours le tableau des activitées
-                data.forEach((item, i) => {
-                    //Génère des div pour y insérer des informations relative aux évenement
-                    /*Les div sont générer selon le model ce dessus
-                    <div class="act_content">
-                        <div class="act_content_title">
-                            <div class="act_content_title_text">Soirée d'intégration</div>
-                            <div class="savoir_plus" onclick="savoirplus()">+</div>
-                        </div>
-                        <div class="act_content_info">Le bde vous propose une soirée d'intégration le 14 octobre.</div>
-                    </div>
-                    */
-                   console.log(item);
-                   //cree les div
-                   var act_content = document.createElement("div");
-                   var act_content_title = document.createElement("div");
-                   var act_content_title_text = document.createElement("div");
-                   var act_content_info = document.createElement("div");
-                   var savoir = savoir_plus.cloneNode(1);
-
-                   //ajoute la class au div correspondante
-                   act_content.classList.add("act_content");
-                   act_content_title.classList.add("act_content_title");
-                   act_content_title_text.classList.add("act_content_title_text");
-                   act_content_info.classList.add("act_content_info");
-                   act_content_info.classList.add("hide");
-                   act_content_title_text.innerHTML = item[1];
-                   // Ajoute à la div "savoir plus" son id et sa class correspondante
-                   // Attache un "eventlistenner" pour detecter les clicks
-                   savoir.id = i;
-                    if(item[3] == "event") savoir.classList.add("event");
-                    else if(item[3] == "pedagogie") savoir.classList.add("pedagogie");
-                    else if(item[3] == "autre") savoir.classList.add("diver");
-                    savoir.addEventListener('click', show_activitie);
-                    //Ajoute à "act_content_info son id et son contenue"
-                    act_content_info.id = "act_content_info_" + i;
-                    act_content_info.innerHTML = item[4];
-                    //Ajoute à "act_content" les elements qu'il contient selon le model
-                    act_content_title.appendChild(act_content_title_text);
-                    act_content_title.appendChild(savoir);
-
-                    act_content.appendChild(act_content_title);
-                    act_content.appendChild(act_content_info);
-                    //Ajoute le tout à la page web, dans la div "activities"
-                    document.getElementById("activites").appendChild(act_content);
-                });
-            });
-
-        }
-        function show_activitie(event) {
-            //console.log(event);
-            document.getElementById("act_content_info_"+event.srcElement.id).classList.toggle("hide");
-        }
-      get_recent_activities();
-      generate_today();
-    </script>
-    <!--<div class="act_content">
-        <div class="act_content_title">
-            <div class="act_content_title_text">Soirée d'intégration</div>
-            <div class="savoir_plus" onclick="show_activitie()">+</div>
-        </div>
-        <div class="act_content_info">
-            Le bde vous propose une soirée d'intégration le 14 octobre.
-        </div>
-    </div>-->
 </html>

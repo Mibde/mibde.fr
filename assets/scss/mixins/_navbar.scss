@@ -1,0 +1,36 @@
+@mixin navbar-burger {
+    text-decoration: none;
+    color: map-get($map: $colors, $key: default);
+    display: none;
+    @include mobile-only {
+        display: block;
+    }
+}
+
+@mixin navbar-links {
+    a {
+        text-decoration: none;
+        transition: color map-get($map: $transitions, $key: default);
+        @include default-color;
+        font-size: 1.3rem;
+        &:hover {
+            @include primary-color;
+        }
+    }
+}
+
+@mixin navbar-link-active {
+    a {
+        pointer-events: none;
+        @include primary-color;
+    }
+}
+
+@mixin navbar-logo {
+    width: 50px;
+    height: 50px;
+}
+
+@mixin navbar-shadow {
+    @include shadow(10px);
+}

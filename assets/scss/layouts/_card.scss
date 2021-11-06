@@ -1,0 +1,24 @@
+.card {
+    background-color: map-get($map: $colors, $key: primary);
+    &--large {
+        @include padding-horizontal(map-get($spacers, 6));
+        @include padding-vertical(map-get($spacers, 5));
+    }
+
+    &--radius {
+        @include border-radius;
+    }
+
+    &--hover {
+        transition: all map-get($map: $transitions, $key: default);
+
+        &:hover {
+            @include shadow;
+        }
+    }
+
+    &__title {
+        font-size: map-get($font-sizes, 4);
+        text-align: center;
+    }
+}

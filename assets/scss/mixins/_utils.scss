@@ -1,0 +1,25 @@
+@mixin primary-color {
+    color: map-get($map: $colors, $key: primary);
+}
+
+@mixin default-color {
+    color: map-get($map: $colors, $key: default);
+}
+
+@mixin shadow($size: $shadow-size, $color: map-get($colors, shadow)) {
+    box-shadow: 5px $size $size $color;
+}
+
+@mixin border-radius($size: map-get($map: $border-radius, $key: default)) {
+    border-radius: $size;
+}
+
+@mixin padding-horizontal($size: map-get($spacers, 1)) {
+    padding-right: $size;
+    padding-left: $size;
+}
+
+@mixin padding-vertical($size: map-get($spacers, 1)) {
+    padding-top: $size;
+    padding-bottom: $size;
+}
