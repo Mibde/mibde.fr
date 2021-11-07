@@ -1,3 +1,9 @@
+$fa-font-path: "../../fonts/Awesome";
+
+@import "~/@fortawesome/fontawesome-free/scss/fontawesome.scss";
+@import "~/@fortawesome/fontawesome-free/scss/solid.scss";
+@import "~/@fortawesome/fontawesome-free/scss/brands.scss";
+
 @import "utils/variables";
 
 @import "utils/mixins/index";
@@ -7,3 +13,4 @@
 @import "base/index";
 
 @import "layouts/navbar";
+@import "layouts/footer";

@@ -1,3 +1,6 @@
+@use "sass:meta";
+@use "sass:math";
+
 @mixin reset {
     margin: map-get($spaces, init);
     padding: map-get($spaces, init);
@@ -8,7 +11,7 @@
     color: map-get($colors, default);
 }
 
-@mixin padding-horizontal($size) {
+@mixin padding-horizontal($size: map-get($spaces, medium)) {
     padding-bottom: $size;
     padding-top: $size;
 }
@@ -16,4 +19,49 @@
 @mixin padding-vertical($size: map-get($spaces, medium)) {
     padding-left: $size;
     padding-right: $size;
+}
+
+@mixin margin-horizontal($size: map-get($spaces, medium)) {
+    margin-top: $size;
+    margin-bottom: $size;
+}
+
+@mixin margin-vertical($size: map-get($spaces, medium)) {
+    margin-left: $size;
+    margin-right: $size;
+}
+
+@mixin border-radius($sizes: $radius) {
+    // If the parameter is a map, we bind all values.
+    @if meta.type-of($sizes) == map {
+        border-radius: map-get($sizes, top-left)
+            map-get($sizes, top-right)
+            map-get($sizes, bottom-right)
+            map-get($sizes, bottom-left);
+    } @else {
+        border-radius: $sizes;
+    }
+}
+
+@mixin font-awesome(
+    $type: "fab",
+    $icon: $fa-var-twitter,
+    $size: false,
+    $hover: false
+) {
+    @extend %fa-icon;
+    @extend .#{$type};
+
+    @if $size {
+        @extend .#{$fa-css-prefix}-#{$size};
+    }
+    @if $hover {
+        &:hover {
+            color: $hover;
+        }
+    }
+
+    &:before {
+        content: fa-content($icon);
+    }
 }

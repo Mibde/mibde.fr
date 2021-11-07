@@ -14,7 +14,7 @@
     align-items: center;
 }
 
-@mixin flex-space {
+@mixin flex-between {
     @include flex();
     justify-content: space-between;
 }

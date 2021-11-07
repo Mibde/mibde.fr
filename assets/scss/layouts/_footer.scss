@@ -1,0 +1,30 @@
+.footer {
+    background-color: $footer-background;
+    @include padding-horizontal($footer-padding);
+    @include border-radius($footer-radius);
+    @include flex-around();
+
+    &__column {
+        &__content {
+            @include flex();
+
+            &__link {
+                @each $name, $value in $footer-icons {
+                    &--#{$name} {
+                        @include margin-vertical();
+
+                        @include font-awesome(
+                            map-get($value, type),
+                            map-get($value, var),
+                            map-get($value, size),
+                            map-get($value, hover)
+                        );
+                    }
+                }
+            }
+        }
+        &__title {
+            font-size: 14pt;
+        }
+    }
+}

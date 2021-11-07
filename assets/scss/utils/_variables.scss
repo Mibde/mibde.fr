@@ -1,12 +1,19 @@
+// ==========
+// | COLORS |
+// ==========
 $colors: (
     default: #666,
     default-background: #fff,
     primary: #1e87f0,
-    primary-background: lighten(mix(white, #1e87f0, 40%), 25%),
+    primary-background: lighten(mix(white, #1e87f0, 10%), 25%),
     secondary: #222,
     secondary-background: lighten(mix(white, #222, 40%), 25%),
 );
 
+// =========
+// | SIZES |
+// =========
+$body-width: 60%;
 $space: 1rem;
 $spaces: (
     init: 0,
@@ -16,8 +23,24 @@ $spaces: (
     large: $space * 1.5,
     xlarge: $space * 3,
 );
+$radius: (
+    top-left: 30px,
+    top-right: 30px,
+    bottom-right: 30px,
+    bottom-left: 30px,
+);
 
-// Navbar variables
+// =========
+// | ICONS |
+// =========
+$base-url-icon: "/static/img/icons";
+
+// ===========
+// | Layouts |
+// ===========
+
+// Navbar
+// ======
 $navbar-padding: map-get($spaces, large);
 $navbar-item-padding: map-get($spaces, large);
 $navbar-background: map-get($colors, primary-background);
@@ -25,3 +48,33 @@ $navbar-color: map-get($colors, primary);
 $navbar-active-color: darken($navbar-color, 20);
 $navbar-separator-height: 2.4em;
 $navbar-separator-width: 3px;
+$navbar-radius: (
+    top-left: 0px,
+    top-right: 0px,
+    bottom-right: 20px,
+    bottom-left: 20px,
+);
+
+// Footer
+$footer-background: map-get($colors, primary-background);
+$footer-padding: map-get($spaces, large);
+$footer-radius: (
+    top-left: 20px,
+    top-right: 20px,
+    bottom-right: 0px,
+    bottom-left: 0px,
+);
+$footer-icons: (
+    github: (
+        var: $fa-var-github,
+        type: "fab",
+        size: "lg",
+        hover: map-get($colors, secondary),
+    ),
+    instagram: (
+        var: $fa-var-instagram,
+        type: "fab",
+        size: "lg",
+        hover: map-get($colors, secondary),
+    ),
+);

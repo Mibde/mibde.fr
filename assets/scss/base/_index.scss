@@ -5,8 +5,18 @@ html {
 }
 
 body {
-    @include flex-space();
+    @include flex-between();
     @include flex-column();
+
+    max-width: $body-width;
+
+    background-color: map-get($colors, default-background);
+    color: map-get($colors, default);
+    margin: auto;
+
+    main {
+        flex-grow: 1;
+    }
 
     a {
         @include reset-link();
