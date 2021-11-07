@@ -1,6 +1,9 @@
 import { defineConfig } from "vite";
 
 export default defineConfig({
+    alias: {
+        "~": "./node_modules",
+    },
     base: "static/build",
     build: {
         outDir: "static/build",
