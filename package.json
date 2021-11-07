@@ -10,6 +10,7 @@
     "vite": "^2.6.4"
   },
   "dependencies": {
+    "@fortawesome/fontawesome-free": "^5.15.4",
     "sass": "^1.43.4"
   }
 }
