@@ -1,8 +1,12 @@
 .cards {
-    grid-template-columns: repeat(2, 1fr);
-    grid-gap: 5rem;
-    @include mobile-only {
-        grid-template-columns: repeat(1, 1fr);
-        grid-template-rows: repeat(2, 1fr);
+    .card {
+        height: 50%;
+        width: 30%;
+        @include margin-vertical($cards-space);
+
+        @include mobile-only {
+            @include margin-vertical(0);
+            @include margin-horizontal($cards-space);
+        }
     }
 }

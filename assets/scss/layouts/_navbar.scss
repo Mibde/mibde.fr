@@ -1,10 +1,9 @@
 .navbar {
     @include navbar-shadow;
-    background-color: map-get($map: $colors, $key: "secondary");
-    padding: 20px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    background-color: $navbar-background;
+    padding: $navbar-size;
+    @include flex-center();
+
     @include mobile-only {
         justify-content: right;
     }

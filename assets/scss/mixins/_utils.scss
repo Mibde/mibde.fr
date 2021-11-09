@@ -23,3 +23,33 @@
     padding-top: $size;
     padding-bottom: $size;
 }
+
+@mixin margin-vertical($size: map-get($spacers, 1)) {
+    margin-left: $size;
+    margin-right: $size;
+}
+
+@mixin margin-horizontal($size: map-get($spacers, 1)) {
+    margin-top: $size;
+    margin-bottom: $size;
+}
+
+@mixin flex() {
+    display: flex;
+}
+
+@mixin flex-around() {
+    @include flex();
+    justify-content: space-around;
+}
+
+@mixin flex-between() {
+    @include flex();
+    justify-content: space-between;
+}
+
+@mixin flex-center() {
+    @include flex();
+    justify-content: center;
+    align-items: center;
+}

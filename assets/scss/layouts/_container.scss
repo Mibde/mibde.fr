@@ -5,6 +5,12 @@
         display: flex;
         &--center {
             justify-content: center;
+            align-items: center;
+
+            @include mobile-only {
+                flex-direction: column;
+            }
+
         }
         &--space-between {
             justify-content: space-between;

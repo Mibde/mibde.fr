@@ -66,9 +66,6 @@ $btn-paddings: (
     ),
 );
 
-// Navbar
-$navbar-size: 20em;
-
 // ==========
 // | Colors |
 // ==========
@@ -80,3 +77,20 @@ $colors: (
     default: #293241,
     shadow: rgba(#293241, 0.2),
 );
+
+// ===========
+// | Layouts |
+// ===========
+
+// Navbar
+$navbar-size: 20px;
+$navbar-background: map-get($colors, secondary);
+
+// Footer
+$footer-background: map-get($colors, secondary);
+$footer-size: 20px;
+
+// =========
+// | Pages |
+// =========
+$cards-space: 50px;
