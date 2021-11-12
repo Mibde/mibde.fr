@@ -78,7 +78,7 @@ $colors-types: (
     ),
     primary: (
         background: lighten(mix(map-get($colors, primary), white), 20),
-        color: map-get($colors, primary),
+        color: #050607,
     ),
     secondary: (
         background: lighten(mix(map-get($colors, secondary), white), 20),

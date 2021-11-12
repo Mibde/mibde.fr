@@ -1,5 +1,6 @@
 .card {
     background-color: map-get($map: $colors, $key: primary);
+    color: map-get($colors-types, primary, color);
     &--large {
         @include padding-horizontal(map-get($spacers, 6));
         @include padding-vertical(map-get($spacers, 5));

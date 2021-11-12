@@ -1,12 +1,13 @@
 .cards {
     .card {
-        height: 50%;
-        width: 30%;
+        height: 70%;
+        width: 40%;
         @include margin-vertical($cards-space);
 
         @include mobile-only {
             @include margin-vertical(0);
             @include margin-horizontal($cards-space);
+            width: 90%;
         }
     }
 }
@@ -17,6 +18,14 @@
         display: flex;
         * {
             width: 20%;
+        }
+
+        @include mobile-only {
+            flex-direction: column;
+            align-items: center;
+            * {
+                width: 40%;
+            }
         }
     }
 }
