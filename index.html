@@ -10,7 +10,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
     <link rel="stylesheet" href="./assets/scss/style.scss" />
-    <link rel="stylesheet" href="./assets/scss/pages/index.scss">
 
     <script type="module" src="./assets/js/main.js" defer></script>
 </head>
@@ -34,13 +33,13 @@
         <a href="javascript:void(0);" style="font-size:15px;" class="navbar__burger icon" onclick="myFunction()">☰</a>
     </nav>
     <main class="container container--flex container--flex--center cards">
-        <div class="card card--large card--radius card--hover">
+        <div class="card card--radius card--hover">
             <h2 class="card__title">Évènements à venir</h2>
-            <div class="card__content">
-                <div class="categories">
-                    <span class="today_topic_title event">2 Évènements</span>
-                    <span class="today_topic_title tutorat">3 Tutorat</span>
-                    <span class="today_topic_title diver">1 Divers</span>
+            <div class="card__content event">
+                <div class="event__filter">
+                    <button class="btn  btn--primary">2 Évènements</button>
+                    <button class="btn  btn--primary">3 Tutorat</button>
+                    <button class="btn  btn--primary">1 Divers</button>
                 </div>
 
                 <div id="activites" class="activities">
@@ -48,7 +47,7 @@
             </div>
 
         </div>
-        <div class="card card--large card--hover card--radius">
+        <div class="card card--hover card--radius">
             <div class="recent_conteneur">
                 <h2 class="card__title">Récent</h2>
                 <div id="recent_content" class="">
@@ -58,7 +57,7 @@
         </div>
     </main>
     <footer class="footer">
-        <p>Contact</p>
+        <p><a href="https://linktr.ee/mibde" target="_blank" rel="noopener noreferrer">Contact</a></p>
         <p>L'équipe</p>
     </footer>
 
