@@ -1,8 +1,8 @@
 .footer {
-    background-color: $footer-background;
-    padding: $footer-size;
+    background-color: map-get($footer, background);
+    padding: map-get($footer, size);
 
     @include flex-around();
 
-    @include shadow();
+    @include shadow(map-get($footer, shadow, size));
 }

@@ -17,5 +17,10 @@ html {
         main {
             flex: 1;
         }
+
+        a {
+            color: map-get($colors-types, primary, color);
+            text-decoration: none;
+        }
     }
 }

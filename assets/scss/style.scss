@@ -207,9 +207,12 @@ body {
 @import "mixins/utils";
 @import "mixins/breakpoints";
 @import "mixins/navbar";
+@import "mixins/button";
 
 @import "base/typography";
 @import "base/base";
+
+@import "components/button";
 
 @import "layouts/navbar";
 @import "layouts/card";

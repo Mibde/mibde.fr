@@ -1,0 +1,9 @@
+@mixin btn-colors($colors) {
+    background-color: map-get($colors, background);
+    border: map-get($colors, border);
+    color: map-get($colors, color);
+
+    &:hover, &--active {
+        background-color: darken(map-get($colors, background), 10);
+    }
+}

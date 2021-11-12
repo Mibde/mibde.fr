@@ -1,3 +1,5 @@
+@use "sass:meta";
+
 @mixin primary-color {
     color: map-get($map: $colors, $key: primary);
 }
@@ -6,12 +8,23 @@
     color: map-get($map: $colors, $key: default);
 }
 
-@mixin shadow($size: $shadow-size, $color: map-get($colors, shadow)) {
-    box-shadow: 5px $size $size $color;
+@mixin shadow($size: map-get($shadow, size), $blur: map-get($shadow, blur), $color: map-get($shadow, color)) {
+    @if type-of($size) == map {
+        box-shadow: map-get($size, x) map-get($size, y) $blur $color;
+    } @else {
+        box-shadow: $size $blur $color;
+    }
 }
 
 @mixin border-radius($size: map-get($map: $border-radius, $key: default)) {
-    border-radius: $size;
+    @if type-of($size) == map {
+        border-radius: map-get($size, top-left)
+            map-get($size, top-right)
+            map-get($size, bottom-left)
+            map-get($size, bottom-right);
+    } @else {
+        border-radius: $size;
+    }
 }
 
 @mixin padding-horizontal($size: map-get($spacers, 1)) {
@@ -22,6 +35,18 @@
 @mixin padding-vertical($size: map-get($spacers, 1)) {
     padding-top: $size;
     padding-bottom: $size;
+}
+
+@mixin padding($size: map-get($spacers, 1), $size-x: false, $size-y: false) {
+    @if $size-x and $size-y {
+        @include padding-vertical($size-x);
+        @include padding-horizontal($size-y);
+    } @else if type-of($size) == map {
+        @include padding-vertical(map-get($size, x));
+        @include padding-horizontal(map-get($size, y));
+    } @else {
+        padding: $size;
+    }
 }
 
 @mixin margin-vertical($size: map-get($spacers, 1)) {
@@ -52,4 +77,8 @@
     @include flex();
     justify-content: center;
     align-items: center;
+}
+
+@mixin text-center {
+    text-align: center;
 }

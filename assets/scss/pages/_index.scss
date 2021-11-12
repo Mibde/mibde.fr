@@ -10,3 +10,13 @@
         }
     }
 }
+
+.event {
+    &__filter {
+        justify-content: space-evenly;
+        display: flex;
+        * {
+            width: 20%;
+        }
+    }
+}

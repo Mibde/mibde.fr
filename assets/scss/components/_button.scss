@@ -1,0 +1,21 @@
+.btn {
+    cursor: pointer;
+    @include padding(map-get($btn, paddings, default));
+    @include border-radius(map-get($btn, radius));
+
+    transition: all 0.5s;
+
+    @each $type, $value in map-get($btn, types) {
+        @if $type == "default" {
+            @include btn-colors($value);
+        } @else {
+            &--#{$type} {
+                @include btn-colors($value);
+            }
+        }
+    }
+
+    &--around {
+        border-radius: 30px;
+    }
+}

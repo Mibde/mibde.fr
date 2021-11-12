@@ -41,6 +41,15 @@ $border-radius: (
     lg: 0.3rem,
 );
 
+$shadow: (
+    size: (
+        x: 5px,
+        y: 5px,
+    ),
+    blur: 5px,
+    color: rgba(black, 0.2),
+);
+
 // ===============
 // | Transitions |
 // ===============
@@ -50,32 +59,76 @@ $transitions: (
     slow: 0.75s,
 );
 
+// ==========
+// | Colors |
+// ==========
+$colors: (
+    primary: #1473f0,
+    secondary: #517285,
+    background: #e0fbfc,
+    warning: #ee6c4d,
+    default: #293241,
+    shadow: rgba(#293241, 0.2),
+);
+
+$colors-types: (
+    default: (
+        background: map-get($colors, background),
+        color: map-get($colors, default),
+    ),
+    primary: (
+        background: lighten(mix(map-get($colors, primary), white), 20),
+        color: map-get($colors, primary),
+    ),
+    secondary: (
+        background: lighten(mix(map-get($colors, secondary), white), 20),
+        color: map-get($colors, secondary),
+    ),
+    warning: (
+        background: lighten(map-get($colors, warning), 45),
+        color: map-get($colors, warning),
+    ),
+);
+
 // ==============
 // | Components |
 // ==============
 
 // Buttons
-$btn-paddings: (
-    y: (
-        sm: 0.25rem,
-        lg: 0.5rem,
+$btn: (
+    types: (
+        default: (
+            background: map-get($colors-types, default, background),
+            color: map-get($colors-types, default, color),
+            border: darken(map-get($colors-types, default, background), 30),
+        ),
+        primary: (
+            background: map-get($colors-types, primary, background),
+            color: map-get($colors-types, primary, color),
+            border: darken(map-get($colors-types, primary, color), 10),
+        ),
+        secondary: (
+            background: map-get($colors-types, secondary, background),
+            color: map-get($colors, secondary),
+            border: darken(map-get($colors, secondary), 10),
+        ),
     ),
-    x: (
-        sm: 0.5rem,
-        lg: 1rem,
+    paddings: (
+        default: (
+            x: 0.75rem,
+            y: 0.75rem,
+        ),
+        sm: (
+            x: 0.25rem,
+            y: 0.25rem,
+        ),
+        lg: (
+            x: 1.25rem,
+            y: 1.25rem,
+        ),
     ),
-);
-
-// ==========
-// | Colors |
-// ==========
-$colors: (
-    primary: #3d5a80,
-    secondary: #98c1d9,
-    background: #e0fbfc,
-    warning: #ee6c4d,
-    default: #293241,
-    shadow: rgba(#293241, 0.2),
+    radius: 0.25rem,
+    border-size: 1px,
 );
 
 // ===========
@@ -84,11 +137,19 @@ $colors: (
 
 // Navbar
 $navbar-size: 20px;
-$navbar-background: map-get($colors, secondary);
+$navbar-background: map-get($colors-types, secondary, background);
 
 // Footer
-$footer-background: map-get($colors, secondary);
-$footer-size: 20px;
+$footer: (
+    background: map-get($colors-types, secondary, background),
+    size: 20px,
+    shadow: (
+        size: (
+            x: 5px,
+            y: -5px,
+        ),
+    ),
+);
 
 // =========
 // | Pages |
