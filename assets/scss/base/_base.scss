@@ -6,6 +6,7 @@ html {
     min-height: 100vh;
 
     body {
+        min-height: 100vh;
         height: 100vh;
         display: flex;
         justify-content: space-between;
@@ -21,6 +22,10 @@ html {
         a {
             color: map-get($colors-types, primary, color);
             text-decoration: none;
+        }
+
+        @include mobile-only {
+            height: 120vh;
         }
     }
 }

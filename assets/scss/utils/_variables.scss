@@ -11,7 +11,7 @@ $breakpoints: (
 // =========
 // | Utils |
 // =========
-
+$sides: "top", "bottom", "left", "right";
 $spacer: 1rem;
 $shadow-size: 1rem;
 
@@ -115,7 +115,7 @@ $btn: (
     ),
     paddings: (
         default: (
-            x: 0.75rem,
+            x: 0.5rem,
             y: 0.75rem,
         ),
         sm: (

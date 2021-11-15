@@ -82,3 +82,9 @@
 @mixin text-center {
     text-align: center;
 }
+
+@mixin border-size($size, $sides: $sides) {
+    @each $side in $sides {
+        border-#{$side}: $size;
+    }
+}
