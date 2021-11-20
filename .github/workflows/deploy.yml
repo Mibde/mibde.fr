@@ -10,8 +10,6 @@ jobs:
 
     steps:
       - uses: actions/checkout@v2
-      - name: git version
-        run: git --version
       - name: ssh deploy
         uses: easingthemes/ssh-deploy@v2.2.11
         env:
