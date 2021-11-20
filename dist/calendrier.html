@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calendrier</title>
+    <meta name="description" content="Calendrier du MIBDE">
+    
+  <link rel="stylesheet" href="/assets/style.938f51cc.css">
+</head>
+<body>
+    <div class="bar">
+        <div id="precedent">Précédent</div>
+        <div id="mois" class="mois">Septembre</div>
+        <div id="suivant">Suivant</div>
+    </div>
+    <div id="information" class="conteneur_day info">
+        <div class="day" style="flex-direction: column;">
+            <h1 id="id_number">1</h1>
+            <h2 id="id_mois">Septembre</h2>
+        </div>
+        <div class="day">
+            <div><span class="icon">2</span> <span>Pédagogie</span></div>
+            <div><span class="icon">3</span> <span>Events</span></div>
+            <div><span class="icon">1</span> <span>Autres</span></div>
+
+        </div>
+    </div>
+    <div class="conteneur" id ="calendrier">
+
+        <!--<div class="conteneur_day">
+            <div class="day">
+                <h1>1</h1>
+            </div>
+            <div class="day">
+                <div><span class="icon">2</span> <span>Pédagogie</span></div>
+                <div><span class="icon">3</span> <span>Events</span></div>
+                <div><span class="icon">1</span> <span>Autres</span></div>
+            </div>
+        </div>-->
+    </div>
+    <style>
+        .conteneur {
+            display: grid;
+            grid-template-columns: repeat(7, 1fr);
+            /*grid-gap: 10px;*/
+            grid-auto-rows: minmax(100px, auto);
+            width: 100vw;
+            height: calc(100vh - 1cm);
+            /*height: 100vh;*/
+        }
+        .conteneur_day {
+            display: grid;
+            grid-template-columns: 50% 50%;
+            height: calc((100vh - 1cm - 4*10px) / 5);
+            width: calc((100vw - 6*10px) / 7);
+            background-color: blueviolet;
+            top : 0;
+            left:0;
+            z-index: 0;
+            transition: all 1s ease;
+            transform-origin: center;
+        }
+        .active {
+            z-index: 100;
+            position: absolute;
+            top: 0;
+            left: 0;
+            height: 100vh;
+            width: 100vw;
+        }
+        .conteneur_day:hover {
+            background-color: rgb(159, 84, 230);
+        }
+        .day {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            align-items: center;
+        }
+        .day div {
+            width: 100%;
+        }
+        .icon {
+            background-color:#f33333;
+            color: white;
+            border-radius: 20px;
+            padding: 4px;
+        }
+        .bar {
+            display: grid;
+            color: #ecdaf3;
+            grid-template-columns: repeat(3, 33%);
+            height: 1cm;
+        }
+        .bar div {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100%;
+            width: 100%;
+        }
+        body {
+            margin: 0;
+            padding: 0;
+            background-color: rgb(62, 24, 97);
+        }
+        .mois {
+            font-size: 1.4rem;
+        }
+        .info {
+            display: collapse;
+            background-color: blueviolet;
+            top:0;
+            left: 0;
+            width: 0;
+            height: 0;
+            z-index: 0;
+            transition: all 1s ease;
+            transform-origin: center;
+            font-size: 1.4rem;
+        }
+        .bite {
+            display: grid;
+            position: absolute;
+            width: 100vw;
+            height: 100vh;
+            z-index: 100;
+
+        }
+    </style>
+    <script>
+    var evenement = [...new Array(31)].map(elem => new Array().fill(null));
+        function generate_cellule(i ) {
+            var conteneur = document.createElement('div');
+            var day = document.createElement('div');
+            var day2 = document.createElement('div');
+            var number_day = document.createElement('h1');
+            conteneur.className = "conteneur_day";
+            conteneur.id = i;
+            day.className = "day";
+            day2.id="day2_"+i;
+            day2.className = "day";
+            number_day.innerHTML = i;
+            day.appendChild(number_day);
+            conteneur.appendChild(day);
+            conteneur.appendChild(day2);
+            document.getElementById("calendrier").appendChild(conteneur);
+        }
+        for(var i = 1; i <= 31; i++) {
+            generate_cellule(i );
+        }
+
+        document.getElementById('calendrier').addEventListener('click', showthisday);
+        document.getElementById('information').addEventListener('click', deletethis);
+        var active = null;
+
+        function showthisday(event) {
+            event.path.forEach(element => {
+                if(element.classList.contains("conteneur_day")) {
+                    console.log(element.id);
+                    var doc = document.getElementById('information');
+                    document.getElementById("id_number").innerHTML = element.id;
+                    document.getElementById("id_mois").innerHTML = document.getElementById("mois").innerHTML;
+                    doc.classList.toggle("bite");
+                }
+            });
+        }
+        function deletethis() {
+            this.classList.toggle("bite");
+        }
+        function get_month() {
+            function reqListener() {
+                var data = JSON.parse(this.responseText);
+                data.forEach((item, i) => {
+                    var day = parseInt((item[2].split(" "))[0].split("-")[2]);
+                    console.log(day);
+                    evenement[day].push(item);
+                    /*
+                    var event = document.createElement("span");
+                    event.innerHTML = "3";
+                    let categorie = event.cloneNode(true);
+                    event.className = "icon";
+                    categorie.innerHTML = " event";
+                    activities.appendChild(event);
+                    activities.appendChild(categorie);
+                    */
+                    /*day2.appendChild(activities);
+                    day2.appendChild(activities.cloneNode(true));
+                    day2.appendChild(activities.cloneNode(true));*/
+                });
+
+                evenement.forEach((day, i) => {
+                    var e = 0, p = 0, d = 0;
+
+                    day.forEach((item, k) => {
+                        if (item[3] == "event") e++;
+                        else if (item[3] == "pedagogie") p++;
+                        else if(item[3] == "diver") d++;
+                    });
+                    if(e > 0) {
+                        var activities = document.createElement('div');
+                        var event = document.createElement("span");
+                        event.innerHTML = e;
+                        event.className = "icon";
+                        let categorie = document.createElement("span");
+                        categorie.innerHTML = " event";
+                        activities.appendChild(event);
+                        activities.appendChild(categorie);
+                        document.getElementById("day2_"+i).appendChild(activities);
+                    }
+                    if(p > 0) {
+                        var activities = document.createElement('div');
+                        var event = document.createElement("span");
+                        event.innerHTML = p;
+                        event.className = "icon";
+                        let categorie = document.createElement("span");
+                        categorie.innerHTML = " pedagogie";
+                        activities.appendChild(event);
+                        activities.appendChild(categorie);
+                        document.getElementById("day2_"+i).appendChild(activities);
+                    }
+                    if(d > 0) {
+                        var activities = document.createElement('div');
+                        var event = document.createElement("span");
+                        event.innerHTML = d;
+                        event.className = "icon";
+                        let categorie = document.createElement("span");
+                        categorie.innerHTML = " diver";
+                        activities.appendChild(event);
+                        activities.appendChild(categorie);
+                        document.getElementById("day2_"+i).appendChild(activities);
+                    }
+
+                    //activites
+                });
+
+                console.log(evenement);
+            }
+
+            var oReq = new XMLHttpRequest();
+            oReq.onload = reqListener;
+            oReq.open("get", "get_month.php", true);
+            oReq.send();
+
+        }
+
+        get_month();
+    </script>
+</body>
+</html>

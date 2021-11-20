@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="fr" dir="ltr">
+
+<head>
+    <meta charset="utf-8">
+    <title>Annales et cours | Mibde</title>
+    <meta name="description" content="Lien des fiches de cours" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    
+    
+  <script type="module" crossorigin src="/assets/main.9bcefc09.js"></script>
+  <link rel="stylesheet" href="/assets/style.938f51cc.css">
+</head>
+
+<body>
+    <nav id="header" class="navbar">
+        <div class="navbar__item">
+            <a href="/">Mibde</a>
+        </div>
+        <!--
+        <div class="navbar__item">
+            <img src="./assets/images/mibde-logo.jpg" class="navbar__item__logo" alt="Logo of MIBDE" />
+        </div> 
+        -->
+        <div class="navbar__item">
+            <a href="calendrier.html">Calendrier</a>
+        </div>
+        <div class="navbar__item navbar__item--active">
+            <a href="annales_cours.html">Annales et cours</a>
+        </div>
+        <a href="javascript:void(0);" style="font-size:15px;" class="navbar__burger icon" onclick="myFunction()">☰</a>
+    </nav>
+    <main class="container container--flex container--flex--center">
+        <div class="">
+            <a href="cours/fiches/FICHE_1_L1_S1_MATHS.pdf">
+                <div class="lien">Fiches n°1 L1 S1 MATHS</div>
+            </a>
+            <a href="cours/fiches/FICHE_1_L1_S1_MATHS.pdf">
+                <div class="lien">
+                    Fiches n°2 L1 S1 MATHS
+                </div>
+            </a>
+        </div>
+    </main>
+    <footer class="footer">
+        <p><a href="https://linktr.ee/mibde" target="_blank" rel="noopener noreferrer">Contact</a></p>
+        <p>L'équipe</p>
+    </footer>
+</body>
+<style media="screen">
+    .lien {
+        padding: 4px;
+    }
+
+    .flexbox-center {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: calc(100vh - 28px - 1.2rem - 1cm);
+        position: absolute;
+        top: calc(28px + 1.2rem);
+        width: 80vw;
+        left: 10vw;
+    }
+
+    .topnav {
+        width: 100vw;
+        max-width: 100%;
+        top: 0;
+        position: fixed;
+        z-index: 2;
+        overflow: hidden;
+        background-color: #9b9bfe;
+        box-shadow: 0 0 10px 0 black;
+    }
+
+    .topnav a {
+        float: left;
+        display: block;
+        color: black;
+        text-align: center;
+        padding: 14px 16px;
+        text-decoration: none;
+        font-size: 17px;
+    }
+
+    .active {
+        background-color: aquamarine;
+        color: white;
+    }
+
+    .topnav .icon {
+        display: none;
+    }
+
+    @media screen and (max-width: 550px) {
+        .conteneur {
+            grid-template-columns: none;
+        }
+
+        .topnav a:not(:first-child),
+        .dropdown .dropbtn {
+            display: none;
+        }
+
+        .topnav a.icon {
+            float: right;
+            display: block;
+        }
+
+        .point {
+            display: none;
+        }
+
+        .topnav.responsive {
+            position: relative;
+        }
+
+        .topnav.responsive .icon {
+            position: absolute;
+            right: 0;
+            top: 0;
+        }
+
+        .topnav.responsive a {
+            float: none;
+            display: block;
+            text-align: left;
+        }
+
+        .topnav.responsive .dropdown {
+            float: none;
+        }
+
+        .topnav.responsive .dropdown-content {
+            position: relative;
+        }
+
+        .topnav.responsive .dropdown .dropbtn {
+            display: block;
+            width: 100%;
+            text-align: left;
+        }
+    }
+
+    body {
+        margin: 0;
+        padding: 0;
+        color: #1d212d;
+        width: 100vw;
+        height: 100vh;
+        font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    }
+</style>
+<script type="text/javascript">
+    function myFunction() {
+        var x = document.getElementById("header");
+        if (x.className === "topnav") {
+            x.className += " responsive";
+        } else {
+            x.className = "topnav";
+        }
+    }
+</script>
+
+</html>
